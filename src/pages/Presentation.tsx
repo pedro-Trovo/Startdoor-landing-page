@@ -217,11 +217,11 @@ export default function Presentation() {
           {/* Diagrama visual */}
           <div className="mb-6 flex items-center justify-center gap-2 text-xs md:gap-4">
             {[
-              { label: 'React 19\nVite 7', sub: 'Frontend', color: 'var(--purple-300)' },
+              { label: 'React\nVite', sub: 'Frontend', color: 'var(--purple-300)' },
               { label: 'Axios JWT', sub: 'HTTP', color: 'var(--grey-400)' },
-              { label: 'Spring Boot 3\nJava 17', sub: 'Backend API', color: 'var(--blue-100)' },
+              { label: 'Spring Boot\nJava', sub: 'Backend API', color: 'var(--blue-100)' },
               { label: 'JPA/Hibernate', sub: 'ORM', color: 'var(--grey-400)' },
-              { label: 'MySQL 8', sub: 'Database', color: 'var(--green-100)' },
+              { label: 'MySQL', sub: 'Database', color: 'var(--green-100)' },
             ].map((item, i) => (
               <div key={i} className="flex flex-col items-center">
                 <div
@@ -239,8 +239,8 @@ export default function Presentation() {
           <div className="grid gap-4 md:grid-cols-3">
             {[
               { n: '1', t: 'Frontend', c: 'var(--purple-300)', items: ['React + TypeScript', 'Vite (build rápido)', 'Tailwind CSS (utility-first)', 'MobX — gerenciamento de estado', 'React Router — navegação', 'Axios — comunicação com API', 'Chart.js — gráficos', 'Docker + Nginx'] },
-              { n: '2', t: 'Backend', c: 'var(--blue-100)', items: ['Java 17 + Spring Boot 3', 'Spring Security + JWT', 'BCrypt — senhas criptografadas', 'JPA / Hibernate — banco de dados', 'MVC: Controller → Service → Repository', 'Gemini API — textos explicativos', 'JavaMailSender — emails', 'Docker + JDK 17'] },
-              { n: '3', t: 'Infra', c: 'var(--green-100)', items: ['MySQL 8 — banco relacional', 'Docker Compose — 3 containers', 'Nginx — proxy + arquivos estáticos', 'Docker Hub — imagens públicas', 'GitHub Actions — CI/CD', 'Swagger — documentação da API', 'Configuração por variáveis de ambiente'] },
+              { n: '2', t: 'Backend', c: 'var(--blue-100)', items: ['Java + Spring Boot', 'Spring Security + JWT', 'BCrypt — hash de senhas', 'JPA / Hibernate — banco de dados', 'MVC: Controller → Service → Repository', 'Gemini API — textos explicativos', 'JavaMailSender — emails', 'Docker + JDK'] },
+              { n: '3', t: 'Infra', c: 'var(--green-100)', items: ['MySQL — banco relacional', 'Docker Compose — 3 containers', 'Nginx — proxy + arquivos estáticos', 'Docker Hub — imagens públicas', 'GitHub Actions — CI/CD', 'Swagger — documentação da API', 'Configuração por variáveis de ambiente'] },
             ].map(layer => (
               <div key={layer.n} className="rounded-xl p-5" style={{ backgroundColor: 'var(--grey-1100)', border: '1px solid var(--grey-800)' }}>
                 <div className="mb-3 flex items-center gap-2">
@@ -326,7 +326,7 @@ export default function Presentation() {
                 { code: 'RN007', title: 'Ponto Forte/Fraco', desc: 'Se média real ≥ expectativa → ponto forte, senão → fraco' },
                 { code: 'RN008', title: 'Moderação', desc: 'Empresa só vê comentários não anônimos' },
                 { code: 'RN009', title: 'Ranking', desc: 'Recomendações ordenadas do maior percentual de match' },
-                { code: 'RN010', title: 'Afinidade', desc: 'Match se ≥70% (8.4 de 12) competências atendem a expectativa' },
+                { code: 'RN010', title: 'Afinidade', desc: 'Match se ≥70% das competências (8 ou mais de 12) atendem a expectativa' },
                 { code: 'RN011', title: 'IA Gemini', desc: 'IA gera texto explicativo personalizado baseado no match' },
               ].map((r, i) => (
               <div
@@ -370,7 +370,7 @@ export default function Presentation() {
               { icon: '🤖', title: 'IA Gemini', desc: 'Gera um texto explicativo personalizado justificando o match' },
               { icon: '❤️', title: 'Favoritar', desc: 'Salve empresas de interesse para consultar depois' },
               { icon: '💬', title: 'Comentários', desc: 'Feedbacks com moderação de anonimato para proteger privacidade' },
-              { icon: '🔐', title: 'Autenticação', desc: 'Login seguro com token JWT e senhas criptografadas' },
+              { icon: '🔐', title: 'Autenticação', desc: 'Login seguro com token JWT e senhas protegidas por hash' },
               { icon: '📧', title: 'Recuperar Senha', desc: 'Redefinição de senha via email com código de verificação' },
             ].map(f => (
               <div
@@ -569,11 +569,15 @@ return { is_match, percentual, competencias_atendidas }`}
         <div className="mx-auto max-w-5xl">
           <SNum n="11" />
           <h2 className="mb-4 text-3xl font-bold md:text-4xl" style={{ color: 'var(--purple-100)' }}>
-            IA Gemini: Justificativa do Match (RN011)
+            IA Gemini: Justificativa do Match
           </h2>
-          <p className="mb-6 text-xs" style={{ color: 'var(--grey-400)' }}>
+          <p className="mb-2 text-xs" style={{ color: 'var(--grey-400)' }}>
             A IA não calcula o match — ela apenas gera um texto explicando o resultado
           </p>
+          <div className="mb-6 rounded-lg p-3" style={{ backgroundColor: 'var(--grey-1000)' }}>
+            <code className="text-xs" style={{ color: 'var(--blue-100)' }}>POST /recomendacoes/ia/gerar</code>
+            <span className="ml-2 text-xs" style={{ color: 'var(--grey-400)' }}>Endpoint exclusivo da IA</span>
+          </div>
 
           <div className="grid gap-4 md:grid-cols-2">
             <div className="rounded-xl p-5" style={{ backgroundColor: 'var(--grey-1100)', border: '1px solid var(--grey-800)' }}>
@@ -707,9 +711,9 @@ Tecnologia, a Empresa X e recomendada pois sua nota em
 
           <div className="grid gap-4 md:grid-cols-3">
             {[
-              { t: 'Frontend', c: 'var(--purple-300)', items: ['React 19', 'TypeScript', 'Vite 7', 'Tailwind v4', 'MobX 6', 'React Router v7', 'React Hook Form', 'Zod', 'Axios', 'Chart.js'] },
-              { t: 'Backend', c: 'var(--blue-100)', items: ['Java 17', 'Spring Boot 3', 'Spring Security', 'JWT (jjwt)', 'JPA / Hibernate', 'Gemini API', 'JavaMailSender', 'MVC Pattern'] },
-              { t: 'DevOps', c: 'var(--green-100)', items: ['MySQL 8', 'Docker', 'Docker Compose', 'Nginx', 'Docker Hub', 'GitHub Actions', 'Swagger', 'Figma'] },
+              { t: 'Frontend', c: 'var(--purple-300)', items: ['React', 'TypeScript', 'Vite', 'Tailwind', 'MobX', 'React Router', 'React Hook Form', 'Zod', 'Axios', 'Chart.js'] },
+              { t: 'Backend', c: 'var(--blue-100)', items: ['Java', 'Spring Boot', 'Spring Security', 'JWT (Auth0)', 'JPA / Hibernate', 'Gemini API', 'JavaMailSender', 'MVC'] },
+              { t: 'DevOps', c: 'var(--green-100)', items: ['MySQL', 'Docker', 'Docker Compose', 'Nginx', 'Docker Hub', 'GitHub Actions', 'Swagger', 'Figma'] },
             ].map(cat => (
               <div key={cat.t} className="rounded-xl p-5" style={{ backgroundColor: 'var(--grey-1100)', border: '1px solid var(--grey-800)' }}>
                 <p className="mb-3 text-xs font-bold uppercase tracking-wider" style={{ color: cat.c }}>{cat.t}</p>
