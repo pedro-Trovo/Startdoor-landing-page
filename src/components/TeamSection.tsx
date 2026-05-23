@@ -1,9 +1,9 @@
 const team = [
-  { name: 'Afonso Scrivani', role: 'Documentador', github: 'ScrivaniAfonso' },
-  { name: 'Gustavo Balbino', role: 'Backend', github: 'Balbinao' },
-  { name: 'Gustavo Soares', role: 'Frontend', github: 'gustavojoze' },
-  { name: 'Lucas Okokama', role: 'Frontend', github: 'LucasOkokama' },
-  { name: 'Pedro Trovo', role: 'Backend', github: 'pedro-Trovo' },
+  { name: 'Afonso Scrivani', role: 'Documentador', github: 'ScrivaniAfonso', image: '/Images/Profiles/AFSC.png' },
+  { name: 'Gustavo Balbino', role: 'Backend', github: 'Balbinao', image: '/Images/Profiles/GBALB.png' },
+  { name: 'Gustavo Soares', role: 'Frontend', github: 'gustavojoze', image: '/Images/Profiles/GJSS.jpg' },
+  { name: 'Lucas Okokama', role: 'Frontend', github: 'LucasOkokama', image: '/Images/Profiles/LKO.jpg' },
+  { name: 'Pedro Trovo', role: 'Backend', github: 'pedro-Trovo', image: '/Images/Profiles/PEDT.png' },
 ];
 
 export default function TeamSection() {
@@ -29,12 +29,12 @@ export default function TeamSection() {
               className="group rounded-xl p-6 text-center transition-all hover:-translate-y-1"
               style={{ backgroundColor: 'var(--grey-1100)', border: '1px solid var(--grey-800)' }}
             >
-              <div
-                className="mx-auto mb-4 flex h-16 w-16 items-center justify-center rounded-full text-2xl font-bold transition-colors"
-                style={{ backgroundColor: 'var(--purple-600)', color: 'var(--purple-100)' }}
-              >
-                {member.name.charAt(0)}
-              </div>
+              <img
+                src={member.image}
+                alt={member.name}
+                className="mx-auto mb-4 h-16 w-16 rounded-full object-cover ring-2"
+                style={{ ringColor: 'var(--purple-600)' }}
+              />
               <h3 className="mb-1 text-sm font-semibold" style={{ color: 'var(--grey-100)' }}>
                 {member.name}
               </h3>
