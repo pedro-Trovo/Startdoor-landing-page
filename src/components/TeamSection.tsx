@@ -32,8 +32,7 @@ export default function TeamSection() {
               <img
                 src={member.image}
                 alt={member.name}
-                className="mx-auto mb-4 h-16 w-16 rounded-full object-cover ring-2"
-                style={{ ringColor: 'var(--purple-600)' }}
+                className="mx-auto mb-4 h-16 w-16 rounded-full object-cover ring-2 ring-purple-600"
               />
               <h3 className="mb-1 text-sm font-semibold" style={{ color: 'var(--grey-100)' }}>
                 {member.name}
