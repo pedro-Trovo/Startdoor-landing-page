@@ -1,3 +1,4 @@
+import { useTheme } from '@contexts/ThemeContext';
 import { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 
@@ -101,6 +102,7 @@ const SKILL_ICONS: Record<string, string> = {
 };
 
 export default function Presentation() {
+  const { theme, toggleTheme } = useTheme();
   const navigate = useNavigate();
   const [activeSlide, setActiveSlide] = useState(0);
   const [visible, setVisible] = useState<Set<string>>(new Set());
@@ -174,6 +176,17 @@ export default function Presentation() {
         onMouseLeave={e => (e.currentTarget.style.backgroundColor = 'var(--grey-900)')}
       >
         {'←'} Início
+      </button>
+
+      <button
+        onClick={toggleTheme}
+        className="no-print fixed right-24 top-3 z-50 rounded-lg px-3 py-1.5 text-xs font-medium transition-all"
+        style={{ backgroundColor: 'var(--grey-900)', color: 'var(--grey-300)' }}
+        onMouseEnter={e => (e.currentTarget.style.backgroundColor = 'var(--purple-500)')}
+        onMouseLeave={e => (e.currentTarget.style.backgroundColor = 'var(--grey-900)')}
+        title={theme === 'dark' ? 'Modo claro' : 'Modo escuro'}
+      >
+        {theme === 'dark' ? '☀️' : '🌙'}
       </button>
 
       <button

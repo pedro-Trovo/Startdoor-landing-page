@@ -1,3 +1,4 @@
+import { useTheme } from '@contexts/ThemeContext';
 import { useLocation, useNavigate } from 'react-router-dom';
 
 const navLinks = [
@@ -7,6 +8,7 @@ const navLinks = [
 ];
 
 export default function Header() {
+  const { theme, toggleTheme } = useTheme();
   const navigate = useNavigate();
   const location = useLocation();
   const isPresentation = location.pathname === '/presentation';
@@ -40,6 +42,17 @@ export default function Header() {
             </a>
           ))}
         </nav>
+
+        <button
+          onClick={toggleTheme}
+          className="mr-4 rounded-lg p-2 text-sm transition-colors md:mr-0"
+          style={{ color: 'var(--grey-300)' }}
+          onMouseEnter={e => (e.currentTarget.style.color = 'var(--purple-200)')}
+          onMouseLeave={e => (e.currentTarget.style.color = 'var(--grey-300)')}
+          title={theme === 'dark' ? 'Modo claro' : 'Modo escuro'}
+        >
+          {theme === 'dark' ? '☀️' : '🌙'}
+        </button>
 
         <a
           href="https://github.com/Balbinao/Startdoor"

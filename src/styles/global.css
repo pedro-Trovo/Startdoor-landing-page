@@ -35,7 +35,11 @@
   font-style: normal;
 }
 
-:root {
+html {
+  transition: background-color 0.3s, color 0.3s;
+}
+
+:root, [data-theme="dark"] {
   --blue-100: #6392ff;
   --blue-200: #2a99c1;
   --blue-300: #003c52;
@@ -75,6 +79,48 @@
   --red-400: #3b1818;
 
   --yellow-100: #fed42e;
+}
+
+[data-theme="light"] {
+  --blue-100: #4a7ae8;
+  --blue-200: #1a7a9e;
+  --blue-300: #005070;
+  --blue-400: #e0e0f0;
+
+  --green-100: #1a8a00;
+  --green-200: #1a6a20;
+  --green-300: #3a5a3a;
+  --green-400: #1a5a0a;
+  --green-500: #1a4a0a;
+  --green-600: #d0e8d0;
+
+  --grey-100: #1a1a1a;
+  --grey-200: #333333;
+  --grey-300: #555555;
+  --grey-400: #777777;
+  --grey-500: #999999;
+  --grey-600: #aaaaaa;
+  --grey-700: #bbbbbb;
+  --grey-800: #cccccc;
+  --grey-900: #e0e0e0;
+  --grey-1000: #e8e8e8;
+  --grey-1100: #f0f0f0;
+  --grey-1200: #f5f5f5;
+  --grey-1300: #ffffff;
+
+  --purple-100: #6b3fa0;
+  --purple-200: #6a3aff;
+  --purple-300: #7b5fd0;
+  --purple-400: #c4b0e8;
+  --purple-500: #d0c0ea;
+  --purple-600: #e8e0f8;
+
+  --red-100: #cc2222;
+  --red-200: #aa3333;
+  --red-300: #885555;
+  --red-400: #f0d0d0;
+
+  --yellow-100: #aa8800;
 }
 
 html {
