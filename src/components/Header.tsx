@@ -1,3 +1,4 @@
+import { MoonIcon, SunIcon } from '@components/ThemeIcons';
 import { useTheme } from '@contexts/ThemeContext';
 import { useLocation, useNavigate } from 'react-router-dom';
 
@@ -51,7 +52,7 @@ export default function Header() {
           onMouseLeave={e => (e.currentTarget.style.color = 'var(--grey-300)')}
           title={theme === 'dark' ? 'Modo claro' : 'Modo escuro'}
         >
-          {theme === 'dark' ? '☀️' : '🌙'}
+          {theme === 'dark' ? <SunIcon /> : <MoonIcon />}
         </button>
 
         <a
