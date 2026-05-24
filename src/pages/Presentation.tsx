@@ -9,28 +9,10 @@ const slides = [
   { id: 'motivations', label: 'Motivações' },
   { id: 'objectives', label: 'Objetivos' },
   { id: 'features', label: 'Funcionalidades' },
-  { id: 'status', label: 'Status' },
   { id: 'tech', label: 'Tecnologias' },
-  { id: 'demo', label: 'Apresentação' },
   { id: 'future', label: 'Futuro' },
   { id: 'qa', label: 'Dúvidas' },
   { id: 'thanks', label: 'Obrigado' },
-];
-
-const FEATURES_LIST = [
-  { name: 'Cadastro e Login de Usuários', done: true },
-  { name: 'Recuperação e Redefinição de Senha', done: true },
-  { name: 'Pesquisa Avançada de Empresas', done: true },
-  { name: 'Avaliação em 12 Competências', done: true },
-  { name: 'Algoritmo de Match Automático', done: true },
-  { name: 'IA Gemini — Recomendação Personalizada', done: true },
-  { name: 'Gráfico Radar Comparativo', done: true },
-  { name: 'Sistema de Favoritos', done: true },
-  { name: 'Comentários com Moderação', done: true },
-  { name: 'Perfil Público (Estudante e Empresa)', done: true },
-  { name: 'Upload de Fotos', done: true },
-  { name: 'Dashboard com Estatísticas', done: false },
-  { name: 'Notificações e Lembretes', done: false },
 ];
 
 const MOTIVATIONS = [
@@ -100,6 +82,35 @@ const SKILL_ICONS: Record<string, string> = {
   Figma: 'figma',
   Nginx: 'nginx',
   'GitHub Actions': 'githubactions',
+};
+
+const TECH_COLORS: Record<string, string> = {
+  React: '#61DAFB',
+  TypeScript: '#3178C6',
+  Tailwind: '#06B6D4',
+  Vite: '#646CFF',
+  MobX: '#FF9955',
+  'React Router': '#CA4245',
+  'React Hook Form': '#EC5990',
+  Zod: '#3E67B1',
+  Axios: '#5A29E4',
+  'Chart.js': '#FF6384',
+  Java: '#ED8B00',
+  Spring: '#6DB33F',
+  JWT: '#000000',
+  'JPA / Hibernate': '#59666C',
+  'Gemini API': '#8E75B2',
+  JavaMailSender: '#ED8B00',
+  MVC: '#6DB33F',
+  Lombok: '#185B5B',
+  MySQL: '#4479A1',
+  Docker: '#2496ED',
+  Nginx: '#009639',
+  'GitHub Actions': '#2088FF',
+  Figma: '#F24E1E',
+  Swagger: '#85EA2D',
+  'Docker Hub': '#2496ED',
+  BCrypt: '#003545',
 };
 
 export default function Presentation() {
@@ -362,41 +373,10 @@ export default function Presentation() {
         </div>
       </Slide>
 
-      {/* ===== 6. FUNCIONALIDADES E STATUS ===== */}
-      <Slide id="status" bg="var(--grey-1200)">
-        <div className="mx-auto max-w-3xl">
-          <SNum n="05" />
-          <h2 className="mb-6 text-3xl font-bold md:text-4xl" style={{ color: 'var(--purple-100)' }}>
-            Funcionalidades e Status
-          </h2>
-
-          <div className="rounded-xl overflow-hidden" style={{ backgroundColor: 'var(--grey-1100)', border: '1px solid var(--grey-800)' }}>
-            <div className="grid grid-cols-2 gap-px" style={{ backgroundColor: 'var(--grey-800)' }}>
-              <div className="p-3 text-xs font-bold uppercase tracking-wider" style={{ backgroundColor: 'var(--grey-1000)', color: 'var(--purple-200)' }}>
-                Funcionalidade
-              </div>
-              <div className="p-3 text-xs font-bold uppercase tracking-wider text-center" style={{ backgroundColor: 'var(--grey-1000)', color: 'var(--purple-200)' }}>
-                Status
-              </div>
-              {FEATURES_LIST.map(f => (
-                <>
-                  <div className="p-3 text-xs" style={{ backgroundColor: 'var(--grey-1100)', color: 'var(--grey-200)' }}>
-                    {f.name}
-                  </div>
-                  <div className="p-3 text-xs text-center" style={{ backgroundColor: 'var(--grey-1100)', color: f.done ? 'var(--green-100)' : 'var(--grey-500)' }}>
-                    {f.done ? '✅ Implementado' : '⬜ Futuro'}
-                  </div>
-                </>
-              ))}
-            </div>
-          </div>
-        </div>
-      </Slide>
-
-      {/* ===== 7. TECNOLOGIAS ===== */}
+      {/* ===== 6. TECNOLOGIAS ===== */}
       <Slide id="tech" bg="var(--grey-1300)">
         <div className="mx-auto max-w-5xl">
-          <SNum n="06" />
+          <SNum n="05" />
           <h2 className="mb-6 text-3xl font-bold md:text-4xl" style={{ color: 'var(--purple-100)' }}>
             Tecnologias Utilizadas
           </h2>
@@ -411,17 +391,17 @@ export default function Presentation() {
                 <p className="mb-3 text-xs font-bold uppercase tracking-wider" style={{ color: cat.c }}>{cat.t}</p>
                 <div className="flex flex-wrap gap-2">
                   {cat.items.map(item => {
+                    const color = TECH_COLORS[item];
                     const iconId = SKILL_ICONS[item];
-                    return iconId ? (
-                      <img
-                        key={item}
-                        src={`https://skillicons.dev/icons?i=${iconId}`}
-                        alt={item}
-                        title={item}
-                        className="h-8 w-8"
-                      />
-                    ) : (
-                      <span key={item} className="rounded-md px-2.5 py-1 text-[10px]" style={{ backgroundColor: 'var(--grey-1000)', color: 'var(--grey-300)' }}>
+                    return (
+                      <span key={item} className="inline-flex items-center gap-1.5 rounded-full px-3 py-1 text-[11px] font-medium whitespace-nowrap"
+                        style={{
+                          backgroundColor: color ? `${color}20` : 'var(--grey-800)',
+                          color: color ?? 'var(--grey-300)',
+                          border: `1px solid ${color ? `${color}40` : 'var(--grey-700)'}`,
+                        }}
+                      >
+                        {iconId ? <img src={`https://skillicons.dev/icons?i=${iconId}`} alt="" className="h-4 w-4" /> : null}
                         {item}
                       </span>
                     );
@@ -430,62 +410,13 @@ export default function Presentation() {
               </div>
             ))}
           </div>
-
-          <div className="mt-6 flex flex-wrap justify-center gap-2">
-            {[
-              ['React', '#61DAFB'], ['TypeScript', '#3178C6'], ['Vite', '#646CFF'],
-              ['Tailwind', '#06B6D4'], ['MobX', '#FF9955'], ['Java', '#ED8B00'],
-              ['Spring', '#6DB33F'], ['MySQL', '#4479A1'], ['Docker', '#2496ED'],
-              ['Gemini', '#8E75B2'], ['Figma', '#F24E1E'],
-            ].map(([name, color]) => (
-              <span key={name} className="rounded-lg px-3 py-1.5 text-[10px] font-medium" style={{ backgroundColor: `${color}15`, color, border: `1px solid ${color}30` }}>
-                {name}
-              </span>
-            ))}
-          </div>
         </div>
       </Slide>
 
-      {/* ===== 8. APRESENTAÇÃO DO SISTEMA ===== */}
-      <Slide id="demo" bg="var(--grey-1200)">
-        <div className="mx-auto max-w-6xl">
-          <SNum n="07" />
-          <h2 className="mb-6 text-3xl font-bold md:text-4xl" style={{ color: 'var(--purple-100)' }}>
-            Apresentação do Sistema
-          </h2>
-
-          <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
-            {[
-              { title: 'Login / Cadastro', desc: 'Cadastro e autenticação de estudantes e empresas com token JWT.', endpoint: 'POST /auth/login' },
-              { title: 'Pesquisa com Filtros', desc: 'Busca empresas por nome, setor e faixa de nota com resultados paginados.', endpoint: 'GET /empresas/pesquisa' },
-              { title: 'Formulário de Avaliação', desc: 'Registro de experiência com 12 notas (1 a 5) + relato textual.', endpoint: 'POST /avaliacoes' },
-              { title: 'Radar Chart 12 Eixos', desc: 'Gráfico comparando expectativas versus médias reais da empresa.', endpoint: 'GET /empresas/{id}/notas' },
-              { title: 'Match com IA Gemini', desc: 'IA gera texto explicativo personalizado baseado no resultado do match.', endpoint: 'POST /recomendacoes/ia/gerar' },
-              { title: 'Swagger + Docker', desc: 'Documentação interativa da API. Infraestrutura com 3 containers Docker.', endpoint: '/swagger-ui/index.html' },
-            ].map(item => (
-              <div
-                key={item.title}
-                className="rounded-xl border-2 border-dashed p-4"
-                style={{ borderColor: 'var(--grey-700)', backgroundColor: 'var(--grey-1100)' }}
-              >
-                <div className="mb-3 flex items-center justify-center rounded-lg" style={{ backgroundColor: 'var(--grey-1000)', minHeight: 130 }}>
-                  <div className="text-center">
-                    <p className="mb-1 text-2xl">{'📸'}</p>
-                    <code className="text-[10px]" style={{ color: 'var(--grey-500)' }}>{item.endpoint}</code>
-                  </div>
-                </div>
-                <h3 className="mb-1 text-sm font-semibold" style={{ color: 'var(--grey-100)' }}>{item.title}</h3>
-                <p className="text-[11px]" style={{ color: 'var(--grey-400)' }}>{item.desc}</p>
-              </div>
-            ))}
-          </div>
-        </div>
-      </Slide>
-
-      {/* ===== 9. IMPLEMENTAÇÕES FUTURAS ===== */}
+      {/* ===== 7. IMPLEMENTAÇÕES FUTURAS ===== */}
       <Slide id="future" bg="var(--grey-1300)">
         <div className="mx-auto max-w-5xl">
-          <SNum n="08" />
+          <SNum n="06" />
           <h2 className="mb-6 text-3xl font-bold md:text-4xl" style={{ color: 'var(--purple-100)' }}>
             Implementações Futuras
           </h2>
@@ -518,7 +449,7 @@ export default function Presentation() {
       {/* ===== 10. DÚVIDAS? ===== */}
       <Slide id="qa" bg="var(--grey-1200)">
         <div className="mx-auto max-w-3xl text-center">
-          <SNum n="09" />
+          <SNum n="07" />
           <h2 className="mb-6 text-4xl font-bold md:text-5xl" style={{ color: 'var(--purple-100)' }}>
             Dúvidas e Perguntas
           </h2>
@@ -528,10 +459,10 @@ export default function Presentation() {
         </div>
       </Slide>
 
-      {/* ===== 11. OBRIGADO! ===== */}
+      {/* ===== 9. OBRIGADO! ===== */}
       <Slide id="thanks" bg="var(--grey-1300)">
         <div className="mx-auto max-w-3xl text-center">
-          <SNum n="10" />
+          <SNum n="08" />
           <h2 className="mb-4 text-4xl font-bold md:text-5xl" style={{ color: 'var(--purple-100)' }}>
             Obrigado pela Atenção!!!
           </h2>
