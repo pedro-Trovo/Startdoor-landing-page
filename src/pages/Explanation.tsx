@@ -11,10 +11,12 @@ const slides = [
   { id: 'flow-3', label: 'IA e Favoritos' },
   { id: 'match-1', label: 'Match — Fórmula' },
   { id: 'match-2', label: 'Match — Exemplo' },
+  { id: 'radar', label: 'Gráfico Radar' },
   { id: 'ia', label: 'IA Gemini' },
   { id: 'frontend', label: 'Frontend' },
   { id: 'backend', label: 'Backend' },
   { id: 'permissoes', label: 'Permissões' },
+  { id: 'comentarios', label: 'Comentários' },
   { id: 'infra', label: 'Infraestrutura' },
   { id: 'cta', label: 'Encerramento' },
 ];
@@ -321,10 +323,60 @@ export default function Explanation() {
         </div>
       </Slide>
 
-      {/* ===== 8. IA GEMINI ===== */}
-      <Slide id="ia" bg="var(--grey-1300)">
+      {/* ===== 8. GRÁFICO RADAR ===== */}
+      <Slide id="radar" bg="var(--grey-1300)">
         <div className="mx-auto max-w-4xl">
           <SNum n="07" />
+          <h2 className="mb-6 text-3xl font-bold md:text-4xl" style={{ color: 'var(--purple-100)' }}>
+            Gráfico Radar — enxergando o match de forma visual
+          </h2>
+          <p className="mb-6 text-sm" style={{ color: 'var(--grey-400)' }}>
+            Como o sistema ajuda a comparar expectativas e médias reais lado a lado
+          </p>
+
+          <div className="mb-6 rounded-xl p-5" style={{ backgroundColor: 'var(--grey-1100)', border: '1px solid var(--grey-800)' }}>
+            <span className="mb-2 block text-lg">{'📊'}</span>
+            <h3 className="mb-3 text-sm font-bold" style={{ color: 'var(--purple-200)' }}>O que é o Gráfico Radar?</h3>
+            <p className="text-sm leading-relaxed" style={{ color: 'var(--grey-300)' }}>
+              É um gráfico com formato de teia que mostra, em um único visual, as notas ideais
+              que o estudante definiu e as médias reais da empresa — tudo sobreposto nos mesmos
+              eixos. Cada eixo representa uma das 12 competências. Quanto mais próximo do centro,
+              menor a nota; quanto mais próximo da borda, maior.
+            </p>
+          </div>
+
+          <div className="grid gap-4 md:grid-cols-3 print:grid-cols-3">
+            {[
+              { icon: '🔄', title: 'Comparação visual', desc: 'As expectativas do estudante aparecem como uma linha, e as médias da empresa como outra. Onde elas se aproximam, o match é forte. Onde se afastam, há gaps.' },
+              { icon: '✅❌', title: 'Pontos fortes e fracos', desc: 'Uma tabela ao lado do gráfico lista, para cada competência, se a empresa atendeu ou ficou abaixo da expectativa — facilitando a decisão do estudante.' },
+              { icon: '🏢🏢', title: 'Comparar empresas', desc: 'O estudante pode ver duas empresas lado a lado no mesmo gráfico radar, com as respectivas médias sobrepostas às suas expectativas — ideal para decidir entre oportunidades.' },
+            ].map((c) => (
+              <div key={c.title} className="rounded-xl p-5 text-center" style={{ backgroundColor: 'var(--grey-1100)', border: '1px solid var(--grey-800)' }}>
+                <span className="mb-3 block text-2xl">{c.icon}</span>
+                <h3 className="mb-2 text-sm font-bold" style={{ color: 'var(--purple-200)' }}>{c.title}</h3>
+                <p className="text-xs leading-relaxed" style={{ color: 'var(--grey-300)' }}>{c.desc}</p>
+              </div>
+            ))}
+          </div>
+
+          <div className="mt-4 flex items-start gap-3 rounded-xl p-4" style={{ backgroundColor: 'var(--grey-1000)', border: '1px solid var(--grey-700)' }}>
+            <span className="mt-0.5 text-lg">{'📐'}</span>
+            <div>
+              <p className="mb-1 text-xs font-bold" style={{ color: 'var(--green-100)' }}>Como é feito</p>
+              <p className="text-xs leading-relaxed" style={{ color: 'var(--grey-300)' }}>
+                O gráfico é gerado com a biblioteca Chart.js. O backend fornece os dados
+                (expectativas do estudante + médias da empresa) via API, e o frontend monta
+                o visual dinamicamente na tela.
+              </p>
+            </div>
+          </div>
+        </div>
+      </Slide>
+
+      {/* ===== 9. IA GEMINI ===== */}
+      <Slide id="ia" bg="var(--grey-1300)">
+        <div className="mx-auto max-w-4xl">
+          <SNum n="08" />
           <h2 className="mb-6 text-3xl font-bold md:text-4xl" style={{ color: 'var(--purple-100)' }}>
             O papel da Inteligência Artificial (IA Gemini)
           </h2>
@@ -393,7 +445,7 @@ export default function Explanation() {
       {/* ===== 9. ARQUITETURA — FRONTEND ===== */}
       <Slide id="frontend" bg="var(--grey-1200)">
         <div className="mx-auto max-w-4xl">
-          <SNum n="08" />
+          <SNum n="09" />
           <h2 className="mb-6 text-3xl font-bold md:text-4xl" style={{ color: 'var(--purple-100)' }}>
             Arquitetura — Frontend
           </h2>
@@ -422,7 +474,7 @@ export default function Explanation() {
       {/* ===== 10. ARQUITETURA — BACKEND ===== */}
       <Slide id="backend" bg="var(--grey-1300)">
         <div className="mx-auto max-w-4xl">
-          <SNum n="09" />
+          <SNum n="10" />
           <h2 className="mb-6 text-3xl font-bold md:text-4xl" style={{ color: 'var(--purple-100)' }}>
             Arquitetura — Backend
           </h2>
@@ -451,7 +503,7 @@ export default function Explanation() {
       {/* ===== 11. PERMISSÕES ===== */}
       <Slide id="permissoes" bg="var(--grey-1200)">
         <div className="mx-auto max-w-4xl">
-          <SNum n="10" />
+          <SNum n="11" />
           <h2 className="mb-6 text-3xl font-bold md:text-4xl" style={{ color: 'var(--purple-100)' }}>
             Permissões do Sistema
           </h2>
@@ -476,10 +528,59 @@ export default function Explanation() {
         </div>
       </Slide>
 
-      {/* ===== 12. INFRAESTRUTURA ===== */}
+      {/* ===== 12. COMENTÁRIOS ===== */}
+      <Slide id="comentarios" bg="var(--grey-1300)">
+        <div className="mx-auto max-w-4xl">
+          <SNum n="12" />
+          <h2 className="mb-6 text-3xl font-bold md:text-4xl" style={{ color: 'var(--purple-100)' }}>
+            Comentários — comunicação entre estudantes e empresas
+          </h2>
+          <p className="mb-6 text-sm" style={{ color: 'var(--grey-400)' }}>
+            Como funciona o sistema de comentários bidirecionais da plataforma
+          </p>
+
+          <div className="mb-6 grid gap-4 md:grid-cols-2 print:grid-cols-2">
+            <div className="rounded-xl p-5" style={{ backgroundColor: 'var(--grey-1100)', border: '1px solid var(--grey-800)' }}>
+              <span className="mb-3 block text-2xl">{'💬'}</span>
+              <h3 className="mb-3 text-sm font-bold" style={{ color: 'var(--purple-200)' }}>Comentário do estudante</h3>
+              <p className="text-xs leading-relaxed" style={{ color: 'var(--grey-300)' }}>
+                Após avaliar uma empresa, o estudante pode publicar um comentário público sobre sua
+                experiência. Ele pode optar pelo anonimato — neste caso, nome, foto e usuário ficam
+                ocultos para os demais visitantes da plataforma, aparecendo apenas no histórico pessoal
+                do próprio estudante.
+              </p>
+            </div>
+            <div className="rounded-xl p-5" style={{ backgroundColor: 'var(--grey-1100)', border: '1px solid var(--grey-800)' }}>
+              <span className="mb-3 block text-2xl">{'🏢'}</span>
+              <h3 className="mb-3 text-sm font-bold" style={{ color: 'var(--purple-200)' }}>Resposta da empresa</h3>
+              <p className="text-xs leading-relaxed" style={{ color: 'var(--grey-300)' }}>
+                A empresa avaliada pode responder publicamente ao comentário do estudante. Diferente
+                do estudante, a empresa é sempre identificada na resposta — não há anonimato para
+                empresas. Cada empresa só pode responder aos comentários recebidos em suas próprias
+                avaliações.
+              </p>
+            </div>
+          </div>
+
+          <div className="flex items-start gap-3 rounded-xl p-4" style={{ backgroundColor: 'var(--grey-1000)', border: '1px solid var(--grey-700)' }}>
+            <span className="mt-0.5 text-lg">{'⚙️'}</span>
+            <div>
+              <p className="mb-1 text-xs font-bold" style={{ color: 'var(--green-100)' }}>Moderação</p>
+              <p className="text-xs leading-relaxed" style={{ color: 'var(--grey-300)' }}>
+                O administrador da plataforma pode editar ou excluir qualquer comentário,
+                garantindo que o conteúdo se mantenha respeitoso e dentro das regras da comunidade.
+                Comentários e respostas seguem o modelo CRUD (criar, ler, atualizar, deletar)
+                com validação de propriedade — cada usuário só altera o que é seu.
+              </p>
+            </div>
+          </div>
+        </div>
+      </Slide>
+
+      {/* ===== 14. INFRAESTRUTURA ===== */}
       <Slide id="infra" bg="var(--grey-1200)">
         <div className="mx-auto max-w-4xl">
-          <SNum n="11" />
+          <SNum n="13" />
           <h2 className="mb-6 text-3xl font-bold md:text-4xl" style={{ color: 'var(--purple-100)' }}>
             Infraestrutura
           </h2>
@@ -524,10 +625,10 @@ export default function Explanation() {
         </div>
       </Slide>
 
-      {/* ===== 13. ENCERRAMENTO ===== */}
+      {/* ===== 15. ENCERRAMENTO ===== */}
       <Slide id="cta" bg="var(--grey-1300)">
         <div className="mx-auto max-w-3xl text-center">
-          <SNum n="12" />
+          <SNum n="14" />
           <h2 className="mb-4 text-3xl font-bold md:text-4xl" style={{ color: 'var(--purple-100)' }}>
             Obrigado!
           </h2>
