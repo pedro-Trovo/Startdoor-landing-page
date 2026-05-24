@@ -322,10 +322,9 @@ export default function Explanation() {
           </h2>
 
           <div className="mb-6 rounded-xl p-5" style={{ backgroundColor: 'var(--grey-1100)', border: '1px solid var(--grey-800)' }}>
-            <span className="mb-2 block text-lg">{'💡'}</span>
             <h3 className="mb-3 text-sm font-bold" style={{ color: 'var(--purple-200)' }}>Exemplo prático</h3>
 
-            <div className="mb-4 grid gap-3 md:grid-cols-2">
+            <div className="mb-4 grid gap-3 md:grid-cols-2 print:grid-cols-2">
               <div className="rounded-lg px-4 py-3" style={{ backgroundColor: 'var(--grey-1200)', border: '1px solid var(--grey-700)' }}>
                 <p className="mb-1.5 text-[11px] font-bold" style={{ color: 'var(--green-100)' }}>{'✅'} Empresa atingiu ou superou sua nota?</p>
                 <p className="text-[11px] leading-relaxed" style={{ color: 'var(--grey-300)' }}>Nada é somado aos pontos perdidos. A competência não penaliza o match.</p>
@@ -336,7 +335,7 @@ export default function Explanation() {
               </div>
             </div>
 
-            <div className="mb-4 grid gap-4 md:grid-cols-2">
+            <div className="mb-4 grid gap-4 md:grid-cols-2 print:grid-cols-2">
               <div className="rounded-lg p-4" style={{ backgroundColor: 'var(--grey-1200)', border: '1px solid var(--grey-800)' }}>
                 <p className="mb-2 text-xs font-bold" style={{ color: 'var(--purple-200)' }}>Aprendizado (sua nota 5)</p>
                 <div className="space-y-1 text-[11px] leading-relaxed" style={{ color: 'var(--grey-300)' }}>
@@ -357,28 +356,13 @@ export default function Explanation() {
               </div>
             </div>
 
-            <div className="mb-4 rounded-lg p-4" style={{ backgroundColor: 'var(--grey-1200)', border: '1px solid var(--grey-800)' }}>
-              <p className="mb-2 text-xs font-bold" style={{ color: 'var(--purple-200)' }}>{'📊'} Fórmula do match</p>
+            <div className="rounded-lg p-4" style={{ backgroundColor: 'var(--grey-1200)', border: '1px solid var(--grey-800)' }}>
               <div className="space-y-1 text-[11px] leading-relaxed" style={{ color: 'var(--grey-300)' }}>
-                <p>
-                  <strong style={{ color: 'var(--grey-200)' }}>TotalMáximo</strong> = soma de (4 × sua nota) de todas as 12 competências
-                  <br />{'   '}ex: (4×5) + (4×2) + ... = TotalMáximo
-                  <br /><span style={{ color: 'var(--grey-400)' }}>O 4 é a maior diferença possível na escala de 1 a 5 (5 − 1 = 4)</span>
-                </p>
-                <p className="mt-1.5">
-                  <strong style={{ color: 'var(--grey-200)' }}>TotalPerdidos</strong> = soma de (diferença × sua nota) de todas as 12 competências
-                  <br />{'   '}ex: 1,5 + 2 + ... = TotalPerdidos
-                </p>
-                <p className="mt-1.5">
-                  <strong style={{ color: 'var(--green-100)' }}>NotaFinal</strong> = ((TotalMáximo − TotalPerdidos) / TotalMáximo) × 100
-                </p>
+                <p><strong style={{ color: 'var(--grey-200)' }}>TotalMáximo</strong> = soma de (4 × sua nota), ex: (4×5)+(4×2)+... <span style={{ color: 'var(--grey-400)' }}>(4 é a maior diferença na escala 1-5)</span></p>
+                <p><strong style={{ color: 'var(--grey-200)' }}>TotalPerdidos</strong> = soma de (diferença × sua nota), ex: 1,5+2+...</p>
+                <p><strong style={{ color: 'var(--green-100)' }}>NotaFinal</strong> = ((TotalMáximo − TotalPerdidos) / TotalMáximo) × 100</p>
+                <p className="pt-1 text-center font-bold" style={{ color: 'var(--green-100)' }}>Se NotaFinal ≥ 80 → match confirmado!</p>
               </div>
-            </div>
-
-            <div className="rounded-lg p-3 text-center" style={{ backgroundColor: 'var(--grey-1000)', border: '1px solid var(--grey-700)' }}>
-              <p className="text-xs font-bold" style={{ color: 'var(--green-100)' }}>
-                Se NotaFinal ≥ 80 → match confirmado!
-              </p>
             </div>
           </div>
 
