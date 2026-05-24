@@ -821,9 +821,9 @@ export default function Explanation() {
                 <p className="mb-1 text-sm font-bold" style={{ color: 'var(--green-100)' }}>Resumo</p>
                 <p className="text-sm leading-relaxed" style={{ color: 'var(--grey-300)' }}>
                   Utilizamos Scrum com sprints curtas de 1 a 2 semanas, entregas incrementais
-                  e adaptação contínua. O backlog era revisado a cada sprint — o escopo nunca era
-                  alterado durante uma sprint em andamento. As 4 sprints entregaram desde a base
-                  de autenticação até o match com IA.
+                  e adaptação contínua. Cada sprint era planejada com as funcionalidades a serem
+                  entregues, e ajustes eram feitos entre sprints conforme necessidade. As 4 sprints
+                  entregaram desde a base de autenticação até o match com IA.
                 </p>
               </div>
             </div>
@@ -856,10 +856,11 @@ export default function Explanation() {
             </div>
             <div className="rounded-xl p-5" style={{ backgroundColor: 'var(--grey-1100)', border: '1px solid var(--grey-800)' }}>
               <span className="mb-3 block text-2xl">{'📋'}</span>
-              <h3 className="mb-2 text-sm font-bold" style={{ color: 'var(--purple-200)' }}>Backlog vivo</h3>
+              <h3 className="mb-2 text-sm font-bold" style={{ color: 'var(--purple-200)' }}>Planejamento por sprint</h3>
               <p className="text-xs leading-relaxed" style={{ color: 'var(--grey-300)' }}>
-                Melhorias em funcionalidades de sprints anteriores eram planejadas entre
-                sprints, mantendo o escopo da sprint atual estável.
+                Cada sprint era planejada com as funcionalidades a serem entregues. Melhorias
+                em funcionalidades anteriores eram organizadas para sprints futuras, mantendo
+                o foco da sprint atual.
               </p>
             </div>
           </div>
