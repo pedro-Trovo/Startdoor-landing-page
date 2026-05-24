@@ -501,6 +501,20 @@ export default function Explanation() {
               ))}
             </ul>
           </div>
+
+          <div className="mt-6 flex items-start gap-3 rounded-xl p-4" style={{ backgroundColor: 'var(--grey-1000)', border: '1px solid var(--grey-700)' }}>
+            <span className="mt-0.5 text-lg">{'📖'}</span>
+            <div>
+              <p className="mb-1 text-xs font-bold" style={{ color: 'var(--green-100)' }}>Documentação interativa (Swagger)</p>
+              <p className="text-xs leading-relaxed" style={{ color: 'var(--grey-300)' }}>
+                O backend possui documentação automática de todas as rotas da API via Swagger/OpenAPI,
+                acessível em <code style={{ color: 'var(--purple-200)' }}>/swagger-ui/index.html</code>.
+                Durante o desenvolvimento, foi essencial: a cada funcionalidade implementada pelo grupo de
+                backend, o pessoal do frontend podia testar os endpoints e entender como consumi-los —
+                agilizando a integração entre as equipes.
+              </p>
+            </div>
+          </div>
         </div>
       </Slide>
 
