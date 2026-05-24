@@ -186,7 +186,7 @@ export default function Explanation() {
               number="1"
               icon="👤"
               title="Cadastro"
-              desc="Estudantes e empresas criam suas contas com email e senha. A senha é protegida com criptografia e o login usa tokens de segurança (JWT), garantindo que apenas usuários autenticados acessem certas funcionalidades."
+              desc="Estudantes e empresas criam suas contas com email e senha. A senha é protegida com criptografia. Após o login, o servidor gera um token JWT único, que deve ser enviado no cabeçalho (header) de toda requisição seguinte. Esse token informa ao servidor quem é o usuário e quais permissões ele tem, eliminando a necessidade de enviar a senha novamente."
             />
             <StepCard
               number="2"
@@ -214,7 +214,7 @@ export default function Explanation() {
               number="3"
               icon="⭐"
               title="Avaliação"
-              desc="Após estagiar em uma empresa, o estudante a avalia dando notas de 1 a 5 em 12 competências e escrevendo um relato textual. A identidade do avaliador fica anônima para proteger sua privacidade."
+              desc="Após estagiar em uma empresa, o estudante a avalia dando notas de 1 a 5 em 12 competências e escrevendo um relato textual. O estudante pode optar por fazer a avaliação de forma anônima — neste caso, seu nome, foto e usuário não ficam visíveis para outras pessoas, aparecendo apenas para ele mesmo em seu histórico pessoal."
             />
             <StepCard
               number="4"
@@ -261,22 +261,51 @@ export default function Explanation() {
           <h2 className="mb-6 text-3xl font-bold md:text-4xl" style={{ color: 'var(--purple-100)' }}>
             Sistema de Match — como decidimos se "deu match"?
           </h2>
-          <div className="space-y-4">
-            <p className="text-base leading-relaxed" style={{ color: 'var(--grey-200)' }}>
-              O match é o coração da plataforma. A lógica é simples: o estudante define, no momento do
-              cadastro, qual seria a nota ideal dele em cada uma das 12 competências (de 1 a 5). A
-              plataforma então calcula a média real de cada competência para a empresa com base em todas
-              as avaliações que ela recebeu.
+
+          <div className="mb-6 rounded-xl p-6 text-center" style={{ backgroundColor: 'var(--grey-1100)', border: '1px solid var(--grey-800)' }}>
+            <p className="mb-3 text-sm font-medium" style={{ color: 'var(--grey-300)' }}>
+              A lógica do match em uma frase:
             </p>
-            <p className="text-base leading-relaxed" style={{ color: 'var(--grey-200)' }}>
-              O sistema então compara as duas pontuações. Se a média da empresa atende ou supera a
-              expectativa do estudante em pelo menos 70% dos critérios, o match é confirmado.
+            <p className="text-base font-semibold leading-relaxed md:text-lg" style={{ color: 'var(--purple-100)' }}>
+              O estudante define suas expectativas → o sistema compara com as médias reais da empresa →
+              se <span style={{ color: 'var(--green-100)' }}>≥80%</span> das competências atendem ou superam a expectativa, é match!
             </p>
-            <p className="text-base leading-relaxed" style={{ color: 'var(--grey-200)' }}>
-              Por exemplo: se o estudante considera "aprendizado" como nota 4 ideal, e a média da
-              empresa naquela competência é 4,2 — esse critério está ok. Se isso acontecer em 70% ou
-              mais das 12 competências, o match acontece.
+          </div>
+
+          <div className="mb-6 grid gap-4 md:grid-cols-2">
+            <div className="rounded-xl p-5" style={{ backgroundColor: 'var(--grey-1100)', border: '1px solid var(--grey-800)' }}>
+              <span className="mb-2 block text-lg">{'📐'}</span>
+              <h3 className="mb-3 text-sm font-bold" style={{ color: 'var(--purple-200)' }}>Como funciona</h3>
+              <ul className="space-y-2 text-sm leading-relaxed" style={{ color: 'var(--grey-300)' }}>
+                <li>{'•'} Estudante define nota ideal (1 a 5) para cada competência</li>
+                <li>{'•'} Plataforma calcula a média real da empresa em cada uma</li>
+                <li>{'•'} Compara: se a média da empresa ≥ expectativa, a competência está OK</li>
+                <li>{'•'} Se ≥80% das competências estão OK, o match é confirmado</li>
+              </ul>
+            </div>
+            <div className="rounded-xl p-5" style={{ backgroundColor: 'var(--grey-1100)', border: '1px solid var(--grey-800)' }}>
+              <span className="mb-2 block text-lg">{'💡'}</span>
+              <h3 className="mb-3 text-sm font-bold" style={{ color: 'var(--purple-200)' }}>Exemplo</h3>
+              <p className="text-sm leading-relaxed" style={{ color: 'var(--grey-300)' }}>
+                Se o estudante considera "aprendizado" como nota 4 ideal e a média da empresa nessa
+                competência é 4,2 — esse critério está OK. Repetindo para as 12 competências, se
+                10 ou mais (≥80%) estiverem OK, o match acontece.
+              </p>
+            </div>
+          </div>
+
+          <div className="rounded-xl p-4" style={{ backgroundColor: 'var(--grey-1100)', border: '1px solid var(--grey-800)' }}>
+            <p className="mb-3 text-center text-xs font-bold uppercase tracking-wider" style={{ color: 'var(--purple-200)' }}>
+              As 12 Competências Avaliadas
             </p>
+            <div className="grid grid-cols-2 gap-x-4 gap-y-1.5 md:grid-cols-3">
+              {['Ambiente', 'Aprendizado', 'Benefícios', 'Cultura', 'Efetivação', 'Entrevista', 'Feedback', 'Infraestrutura', 'Integração', 'Remuneração', 'Rotina', 'Liderança'].map((c) => (
+                <div key={c} className="flex items-center gap-2 text-xs" style={{ color: 'var(--grey-300)' }}>
+                  <span style={{ color: 'var(--purple-200)' }}>{'▸'}</span>
+                  {c}
+                </div>
+              ))}
+            </div>
           </div>
         </div>
       </Slide>
@@ -288,28 +317,64 @@ export default function Explanation() {
           <h2 className="mb-6 text-3xl font-bold md:text-4xl" style={{ color: 'var(--purple-100)' }}>
             O papel da Inteligência Artificial (IA Gemini)
           </h2>
-          <div className="space-y-4">
-            <p className="text-base leading-relaxed" style={{ color: 'var(--grey-200)' }}>
-              Quando o match é confirmado, a plataforma envia os dados para a API do Google Gemini —
-              uma inteligência artificial generativa, similar ao ChatGPT, mas focada em entender e
-              gerar textos.
-            </p>
-            <p className="text-base leading-relaxed" style={{ color: 'var(--grey-200)' }}>
-              A IA recebe as seguintes informações: o nome da empresa, as notas que o estudante definiu
-              como ideais, as médias reais da empresa em cada competência e o resultado do match. Com
-              base nisso, ela gera um texto curto e personalizado explicando por que a empresa é
-              compatível com aquele perfil.
-            </p>
-            <p className="text-base leading-relaxed" style={{ color: 'var(--grey-200)' }}>
-              Na prática, é como se a IA "interpretasse os números" e escrevesse um parágrafo
-              explicativo, dando mais contexto e clareza para o estudante. Isso transforma dados frios
-              em uma recomendação compreensível.
-            </p>
-            <p className="text-base leading-relaxed" style={{ color: 'var(--grey-200)' }}>
-              A integração é feita de forma segura: o backend do Startdoor (em Java) faz uma chamada
-              para a API do Gemini, recebe o texto gerado e o armazena para exibição futura — sem
-              expor chaves ou dados sensíveis.
-            </p>
+          <p className="mb-6 text-sm" style={{ color: 'var(--grey-400)' }}>
+            Como a IA do Google gera recomendações personalizadas para cada estudante
+          </p>
+
+          <div className="mb-6 grid gap-3 sm:grid-cols-4">
+            {[
+              { icon: '✅', title: 'Match confirmado', desc: 'O sistema identifica que a empresa atende ≥80% das expectativas do estudante' },
+              { icon: '📤', title: 'Dados enviados', desc: 'O backend envia as notas, preferências do estudante e as médias da empresa para a API do Gemini' },
+              { icon: '🧠', title: 'IA processa', desc: 'O Gemini analisa os números e gera um texto explicativo personalizado em linguagem natural' },
+              { icon: '💬', title: 'Texto exibido', desc: 'A recomendação aparece na plataforma para o estudante ler e entender o match' },
+            ].map((step, i) => (
+              <div key={step.title} className="rounded-xl p-4 text-center" style={{ backgroundColor: 'var(--grey-1100)', border: '1px solid var(--grey-800)' }}>
+                <span className="mb-2 block text-2xl">{step.icon}</span>
+                <h3 className="mb-1 text-xs font-bold" style={{ color: 'var(--purple-200)' }}>
+                  <span style={{ color: 'var(--grey-500)' }}>{i + 1}.</span> {step.title}
+                </h3>
+                <p className="text-[11px] leading-relaxed" style={{ color: 'var(--grey-400)' }}>{step.desc}</p>
+              </div>
+            ))}
+          </div>
+
+          <div className="mb-6 rounded-xl p-5" style={{ backgroundColor: 'var(--grey-1100)', border: '1px solid var(--grey-800)' }}>
+            <h3 className="mb-3 text-sm font-bold" style={{ color: 'var(--purple-200)' }}>
+              {'📋'} O que a IA recebe para gerar o texto
+            </h3>
+            <div className="grid gap-2 text-sm md:grid-cols-2" style={{ color: 'var(--grey-300)' }}>
+              <div className="flex gap-2">
+                <span style={{ color: 'var(--purple-200)' }}>{'•'}</span>
+                <span>Nome e perfil do estudante + preferências ideais em cada competência</span>
+              </div>
+              <div className="flex gap-2">
+                <span style={{ color: 'var(--purple-200)' }}>{'•'}</span>
+                <span>Médias reais da empresa em todas as 12 competências</span>
+              </div>
+              <div className="flex gap-2">
+                <span style={{ color: 'var(--purple-200)' }}>{'•'}</span>
+                <span>Setor de interesse e modelo de trabalho desejado</span>
+              </div>
+              <div className="flex gap-2">
+                <span style={{ color: 'var(--purple-200)' }}>{'•'}</span>
+                <span>Resultado do match (quais competências foram OK)</span>
+              </div>
+            </div>
+          </div>
+
+          <div className="rounded-xl p-4" style={{ backgroundColor: 'var(--grey-1000)', border: '1px solid var(--grey-700)' }}>
+            <div className="flex items-start gap-3">
+              <span className="mt-0.5 text-lg">{'🔒'}</span>
+              <div>
+                <p className="mb-1 text-xs font-bold" style={{ color: 'var(--green-100)' }}>Integração segura</p>
+                <p className="text-xs leading-relaxed" style={{ color: 'var(--grey-400)' }}>
+                  A comunicação com a API do Gemini é feita exclusivamente pelo backend em Java, utilizando
+                  uma chave de API armazenada de forma segura nas variáveis de ambiente — sem expor dados
+                  sensíveis ou chaves no frontend. O texto gerado é armazenado no banco de dados para
+                  consultas futuras.
+                </p>
+              </div>
+            </div>
           </div>
         </div>
       </Slide>
@@ -369,6 +434,21 @@ export default function Explanation() {
               ))}
             </ul>
           </div>
+
+          <div className="mt-4 grid gap-3 md:grid-cols-3">
+            {[
+              { role: '🎓', title: 'Estudante', can: 'Avaliar empresas, comentar, favoritar, ver matches e recomendações da IA', cant: 'Responder como empresa, gerenciar setores ou acessar dados de outros estudantes' },
+              { role: '🏢', title: 'Empresa', can: 'Criar e editar perfil público, responder comentários recebidos, ver suas avaliações', cant: 'Avaliar outras empresas, acessar dados pessoais de estudantes' },
+              { role: '⚙️', title: 'Administrador', can: 'Gerenciar setores, moderar conteúdo, acesso total ao painel administrativo', cant: '' },
+            ].map((p) => (
+              <div key={p.title} className="rounded-xl p-4" style={{ backgroundColor: 'var(--grey-1100)', border: '1px solid var(--grey-800)' }}>
+                <span className="mb-2 block text-lg">{p.role}</span>
+                <h3 className="mb-2 text-sm font-bold" style={{ color: 'var(--purple-200)' }}>{p.title}</h3>
+                <p className="mb-1 text-[11px]" style={{ color: 'var(--green-100)' }}>Pode: <span style={{ color: 'var(--grey-300)' }}>{p.can}</span></p>
+                {p.cant && <p className="text-[11px]" style={{ color: 'var(--red-100)' }}>Não pode: <span style={{ color: 'var(--grey-400)' }}>{p.cant}</span></p>}
+              </div>
+            ))}
+          </div>
         </div>
       </Slide>
 
@@ -377,7 +457,7 @@ export default function Explanation() {
         <div className="mx-auto max-w-4xl">
           <SNum n="09" />
           <h2 className="mb-6 text-3xl font-bold md:text-4xl" style={{ color: 'var(--purple-100)' }}>
-            Infraestrutura e deploy
+            Infraestrutura
           </h2>
           <div className="space-y-4">
             <p className="text-base leading-relaxed" style={{ color: 'var(--grey-200)' }}>
@@ -389,9 +469,12 @@ export default function Explanation() {
               Nginx (servidor web que gerencia as requisições e serve os arquivos do frontend).
             </p>
             <p className="text-base leading-relaxed" style={{ color: 'var(--grey-200)' }}>
-              Usamos GitHub Actions para automatizar testes e deploys: a cada alteração no código, o
-              sistema roda verificações automaticamente e, se tudo estiver certo, publica uma nova
-              versão.
+              Usamos GitHub Actions como sistema de integração contínua. A cada novo código enviado
+              para o branch principal, ele faz automaticamente o build das imagens Docker do backend
+              e do frontend e as publica no Docker Hub (startdoor/startdoor-backend e
+              startdoor/startdoor-frontend). O docker-compose.yml utilizado na implantação aponta
+              sempre para a versão mais recente (latest), garantindo que o sistema esteja sempre
+              atualizado.
             </p>
           </div>
         </div>
