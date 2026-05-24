@@ -9,10 +9,12 @@ const slides = [
   { id: 'flow-1', label: 'Cadastro e Pesquisa' },
   { id: 'flow-2', label: 'Avaliação e Match' },
   { id: 'flow-3', label: 'IA e Favoritos' },
-  { id: 'match', label: 'Sistema de Match' },
+  { id: 'match-1', label: 'Match — Fórmula' },
+  { id: 'match-2', label: 'Match — Exemplo' },
   { id: 'ia', label: 'IA Gemini' },
   { id: 'frontend', label: 'Frontend' },
   { id: 'backend', label: 'Backend' },
+  { id: 'permissoes', label: 'Permissões' },
   { id: 'infra', label: 'Infraestrutura' },
   { id: 'cta', label: 'Dúvidas' },
 ];
@@ -254,8 +256,8 @@ export default function Explanation() {
         </div>
       </Slide>
 
-      {/* ===== 6. SISTEMA DE MATCH ===== */}
-      <Slide id="match" bg="var(--grey-1200)">
+      {/* ===== 6. MATCH — FÓRMULA ===== */}
+      <Slide id="match-1" bg="var(--grey-1200)">
         <div className="mx-auto max-w-4xl">
           <SNum n="05" />
           <h2 className="mb-6 text-3xl font-bold md:text-4xl" style={{ color: 'var(--purple-100)' }}>
@@ -272,26 +274,35 @@ export default function Explanation() {
             </p>
           </div>
 
-          <div className="mb-6 grid gap-4 md:grid-cols-2">
-            <div className="rounded-xl p-5" style={{ backgroundColor: 'var(--grey-1100)', border: '1px solid var(--grey-800)' }}>
-              <span className="mb-2 block text-lg">{'📐'}</span>
-              <h3 className="mb-3 text-sm font-bold" style={{ color: 'var(--purple-200)' }}>Como funciona</h3>
-              <ul className="space-y-2 text-sm leading-relaxed" style={{ color: 'var(--grey-300)' }}>
-                <li>{'•'} Estudante define nota ideal (1 a 5) para cada competência</li>
-                <li>{'•'} Plataforma calcula a média real da empresa em cada uma</li>
-                <li>{'•'} Compara: se a média da empresa ≥ expectativa, a competência está OK</li>
-                <li>{'•'} Se ≥80% das competências estão OK, o match é confirmado</li>
-              </ul>
-            </div>
-            <div className="rounded-xl p-5" style={{ backgroundColor: 'var(--grey-1100)', border: '1px solid var(--grey-800)' }}>
-              <span className="mb-2 block text-lg">{'💡'}</span>
-              <h3 className="mb-3 text-sm font-bold" style={{ color: 'var(--purple-200)' }}>Exemplo</h3>
-              <p className="text-sm leading-relaxed" style={{ color: 'var(--grey-300)' }}>
-                Se o estudante considera "aprendizado" como nota 4 ideal e a média da empresa nessa
-                competência é 4,2 — esse critério está OK. Repetindo para as 12 competências, se
-                10 ou mais (≥80%) estiverem OK, o match acontece.
-              </p>
-            </div>
+          <div className="rounded-xl p-5" style={{ backgroundColor: 'var(--grey-1100)', border: '1px solid var(--grey-800)' }}>
+            <span className="mb-2 block text-lg">{'📐'}</span>
+            <h3 className="mb-3 text-sm font-bold" style={{ color: 'var(--purple-200)' }}>Como funciona</h3>
+            <ul className="space-y-2 text-sm leading-relaxed" style={{ color: 'var(--grey-300)' }}>
+              <li>{'•'} Estudante define nota ideal (1 a 5) para cada competência</li>
+              <li>{'•'} Plataforma calcula a média real da empresa em cada uma</li>
+              <li>{'•'} Compara: se a média da empresa ≥ expectativa, a competência está OK</li>
+              <li>{'•'} Se ≥80% das competências estão OK, o match é confirmado</li>
+            </ul>
+          </div>
+        </div>
+      </Slide>
+
+      {/* ===== 7. MATCH — EXEMPLO ===== */}
+      <Slide id="match-2" bg="var(--grey-1300)">
+        <div className="mx-auto max-w-4xl">
+          <SNum n="06" />
+          <h2 className="mb-6 text-3xl font-bold md:text-4xl" style={{ color: 'var(--purple-100)' }}>
+            Sistema de Match — exemplo
+          </h2>
+
+          <div className="mb-6 rounded-xl p-5" style={{ backgroundColor: 'var(--grey-1100)', border: '1px solid var(--grey-800)' }}>
+            <span className="mb-2 block text-lg">{'💡'}</span>
+            <h3 className="mb-3 text-sm font-bold" style={{ color: 'var(--purple-200)' }}>Exemplo prático</h3>
+            <p className="text-sm leading-relaxed" style={{ color: 'var(--grey-300)' }}>
+              Se o estudante considera "aprendizado" como nota 4 ideal e a média da empresa nessa
+              competência é 4,2 — esse critério está OK. Repetindo para as 12 competências, se
+              10 ou mais (≥80%) estiverem OK, o match acontece.
+            </p>
           </div>
 
           <div className="rounded-xl p-4" style={{ backgroundColor: 'var(--grey-1100)', border: '1px solid var(--grey-800)' }}>
@@ -310,10 +321,10 @@ export default function Explanation() {
         </div>
       </Slide>
 
-      {/* ===== 7. IA GEMINI ===== */}
+      {/* ===== 8. IA GEMINI ===== */}
       <Slide id="ia" bg="var(--grey-1300)">
         <div className="mx-auto max-w-4xl">
-          <SNum n="06" />
+          <SNum n="07" />
           <h2 className="mb-6 text-3xl font-bold md:text-4xl" style={{ color: 'var(--purple-100)' }}>
             O papel da Inteligência Artificial (IA Gemini)
           </h2>
@@ -379,10 +390,10 @@ export default function Explanation() {
         </div>
       </Slide>
 
-      {/* ===== 8. ARQUITETURA — FRONTEND ===== */}
+      {/* ===== 9. ARQUITETURA — FRONTEND ===== */}
       <Slide id="frontend" bg="var(--grey-1200)">
         <div className="mx-auto max-w-4xl">
-          <SNum n="07" />
+          <SNum n="08" />
           <h2 className="mb-6 text-3xl font-bold md:text-4xl" style={{ color: 'var(--purple-100)' }}>
             Arquitetura — Frontend
           </h2>
@@ -408,10 +419,10 @@ export default function Explanation() {
         </div>
       </Slide>
 
-      {/* ===== 9. ARQUITETURA — BACKEND ===== */}
+      {/* ===== 10. ARQUITETURA — BACKEND ===== */}
       <Slide id="backend" bg="var(--grey-1300)">
         <div className="mx-auto max-w-4xl">
-          <SNum n="08" />
+          <SNum n="09" />
           <h2 className="mb-6 text-3xl font-bold md:text-4xl" style={{ color: 'var(--purple-100)' }}>
             Arquitetura — Backend
           </h2>
@@ -434,17 +445,30 @@ export default function Explanation() {
               ))}
             </ul>
           </div>
+        </div>
+      </Slide>
 
-          <div className="mt-4 grid gap-3 md:grid-cols-3">
+      {/* ===== 11. PERMISSÕES ===== */}
+      <Slide id="permissoes" bg="var(--grey-1200)">
+        <div className="mx-auto max-w-4xl">
+          <SNum n="10" />
+          <h2 className="mb-6 text-3xl font-bold md:text-4xl" style={{ color: 'var(--purple-100)' }}>
+            Permissões do Sistema
+          </h2>
+          <p className="mb-6 text-sm" style={{ color: 'var(--grey-400)' }}>
+            Cada tipo de usuário tem acesso a funcionalidades específicas
+          </p>
+
+          <div className="grid gap-4 md:grid-cols-3">
             {[
               { role: '🎓', title: 'Estudante', can: 'Avaliar empresas, comentar, favoritar, ver matches e recomendações da IA', cant: 'Responder como empresa, gerenciar setores ou acessar dados de outros estudantes' },
               { role: '🏢', title: 'Empresa', can: 'Criar e editar perfil público, responder comentários recebidos, ver suas avaliações', cant: 'Avaliar outras empresas, acessar dados pessoais de estudantes' },
               { role: '⚙️', title: 'Administrador', can: 'Gerenciar setores, moderar conteúdo, acesso total ao painel administrativo', cant: '' },
             ].map((p) => (
-              <div key={p.title} className="rounded-xl p-4" style={{ backgroundColor: 'var(--grey-1100)', border: '1px solid var(--grey-800)' }}>
-                <span className="mb-2 block text-lg">{p.role}</span>
-                <h3 className="mb-2 text-sm font-bold" style={{ color: 'var(--purple-200)' }}>{p.title}</h3>
-                <p className="mb-1 text-[11px]" style={{ color: 'var(--green-100)' }}>Pode: <span style={{ color: 'var(--grey-300)' }}>{p.can}</span></p>
+              <div key={p.title} className="rounded-xl p-5" style={{ backgroundColor: 'var(--grey-1100)', border: '1px solid var(--grey-800)' }}>
+                <span className="mb-3 block text-2xl">{p.role}</span>
+                <h3 className="mb-3 text-sm font-bold" style={{ color: 'var(--purple-200)' }}>{p.title}</h3>
+                <p className="mb-2 text-[11px]" style={{ color: 'var(--green-100)' }}>Pode: <span style={{ color: 'var(--grey-300)' }}>{p.can}</span></p>
                 {p.cant && <p className="text-[11px]" style={{ color: 'var(--red-100)' }}>Não pode: <span style={{ color: 'var(--grey-400)' }}>{p.cant}</span></p>}
               </div>
             ))}
@@ -452,10 +476,10 @@ export default function Explanation() {
         </div>
       </Slide>
 
-      {/* ===== 10. INFRAESTRUTURA ===== */}
+      {/* ===== 12. INFRAESTRUTURA ===== */}
       <Slide id="infra" bg="var(--grey-1200)">
         <div className="mx-auto max-w-4xl">
-          <SNum n="09" />
+          <SNum n="11" />
           <h2 className="mb-6 text-3xl font-bold md:text-4xl" style={{ color: 'var(--purple-100)' }}>
             Infraestrutura
           </h2>
@@ -480,10 +504,10 @@ export default function Explanation() {
         </div>
       </Slide>
 
-      {/* ===== 11. CTA / DÚVIDAS ===== */}
+      {/* ===== 13. CTA / DÚVIDAS ===== */}
       <Slide id="cta" bg="var(--grey-1300)">
         <div className="mx-auto max-w-3xl text-center">
-          <SNum n="10" />
+          <SNum n="12" />
           <h2 className="mb-4 text-3xl font-bold md:text-4xl" style={{ color: 'var(--purple-100)' }}>
             Dúvidas?
           </h2>
