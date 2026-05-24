@@ -186,12 +186,35 @@ export default function Explanation() {
           </p>
 
           <div className="space-y-4">
-            <StepCard
-              number="1"
-              icon="👤"
-              title="Cadastro"
-              desc="Estudantes e empresas criam suas contas com email e senha. A senha é protegida com criptografia. Após o login, o servidor gera um token JWT único, que deve ser enviado no cabeçalho (header) de toda requisição seguinte. Esse token informa ao servidor quem é o usuário e quais permissões ele tem, eliminando a necessidade de enviar a senha novamente. Caso esqueça a senha, o sistema utiliza SMTP (protocolo de envio de emails) para enviar um código numérico de 6 dígitos ao email do usuário. Esse código expira em 15 minutos e deve ser informado na plataforma para autorizar a redefinição da senha."
-            />
+            <div className="flex gap-4 rounded-xl p-5" style={{ backgroundColor: 'var(--grey-1100)', border: '1px solid var(--grey-800)' }}>
+              <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-lg text-lg" style={{ backgroundColor: 'var(--purple-600)' }}>{'👤'}</span>
+              <div className="flex-1">
+                <h3 className="mb-3 font-semibold" style={{ color: 'var(--grey-100)' }}>
+                  <span style={{ color: 'var(--purple-200)' }}>1.</span> Cadastro
+                </h3>
+                <div className="grid gap-3 md:grid-cols-3">
+                  <div className="rounded-lg p-3" style={{ backgroundColor: 'var(--grey-1200)', border: '1px solid var(--grey-800)' }}>
+                    <p className="mb-1 text-xs font-bold" style={{ color: 'var(--purple-200)' }}>{'📝'} Criação de conta</p>
+                    <p className="text-[11px] leading-relaxed" style={{ color: 'var(--grey-300)' }}>
+                      Estudantes e empresas criam contas com email e senha. A senha é protegida com criptografia.
+                    </p>
+                  </div>
+                  <div className="rounded-lg p-3" style={{ backgroundColor: 'var(--grey-1200)', border: '1px solid var(--grey-800)' }}>
+                    <p className="mb-1 text-xs font-bold" style={{ color: 'var(--purple-200)' }}>{'🔑'} Autenticação JWT</p>
+                    <p className="text-[11px] leading-relaxed" style={{ color: 'var(--grey-300)' }}>
+                      Ao logar, o servidor gera um token único enviado no header de toda requisição,
+                      informando identidade e permissões sem reenviar a senha.
+                    </p>
+                  </div>
+                  <div className="rounded-lg p-3" style={{ backgroundColor: 'var(--grey-1200)', border: '1px solid var(--grey-800)' }}>
+                    <p className="mb-1 text-xs font-bold" style={{ color: 'var(--purple-200)' }}>{'🔐'} Recuperação de senha</p>
+                    <p className="text-[11px] leading-relaxed" style={{ color: 'var(--grey-300)' }}>
+                      Usa SMTP para enviar um código numérico de 6 dígitos ao email. O código expira em 15 minutos e autoriza a redefinição da senha.
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
             <StepCard
               number="2"
               icon="🔍"
