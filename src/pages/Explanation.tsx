@@ -16,7 +16,7 @@ const slides = [
   { id: 'backend', label: 'Backend' },
   { id: 'permissoes', label: 'Permissões' },
   { id: 'infra', label: 'Infraestrutura' },
-  { id: 'cta', label: 'Dúvidas' },
+  { id: 'cta', label: 'Encerramento' },
 ];
 
 export default function Explanation() {
@@ -160,7 +160,7 @@ export default function Explanation() {
               para escolher melhor.
             </p>
             <p className="text-base leading-relaxed" style={{ color: 'var(--grey-200)' }}>
-              Imagine um "Glassdoor para estágios": os estudantes dão notas de 1 a 5 em 12 competências
+              Os estudantes dão notas de 1 a 5 em 12 competências
               diferentes (como aprendizado, ambiente, benefícios, etc.) e escrevem um relato textual da
               experiência. Tudo isso fica disponível para a comunidade.
             </p>
@@ -180,7 +180,7 @@ export default function Explanation() {
             Como o sistema funciona?
           </h2>
           <p className="mb-6 text-sm" style={{ color: 'var(--grey-400)' }}>
-            O fluxo principal é simples e intuitivo — etapas 1 e 2
+            O fluxo principal é simples — etapas 1 e 2
           </p>
 
           <div className="space-y-4">
@@ -222,7 +222,7 @@ export default function Explanation() {
               number="4"
               icon="📊"
               title="Match"
-              desc="Antes de avaliar, o estudante define quais notas considera ideais em cada competência. O sistema compara essas expectativas com as médias reais da empresa. Se a compatibilidade for de 70% ou mais, é considerado um match."
+               desc="Antes de avaliar, o estudante define quais notas considera ideais em cada competência. O sistema compara essas expectativas com as médias reais da empresa. Se a compatibilidade for de 80% ou mais, é considerado um match."
             />
           </div>
         </div>
@@ -344,7 +344,7 @@ export default function Explanation() {
                 <h3 className="mb-1 text-xs font-bold" style={{ color: 'var(--purple-200)' }}>
                   <span style={{ color: 'var(--grey-500)' }}>{i + 1}.</span> {step.title}
                 </h3>
-                <p className="text-[11px] leading-relaxed" style={{ color: 'var(--grey-400)' }}>{step.desc}</p>
+                <p className="text-[11px] leading-relaxed" style={{ color: 'var(--grey-300)' }}>{step.desc}</p>
               </div>
             ))}
           </div>
@@ -378,7 +378,7 @@ export default function Explanation() {
               <span className="mt-0.5 text-lg">{'🔒'}</span>
               <div>
                 <p className="mb-1 text-xs font-bold" style={{ color: 'var(--green-100)' }}>Integração segura</p>
-                <p className="text-xs leading-relaxed" style={{ color: 'var(--grey-400)' }}>
+                <p className="text-xs leading-relaxed" style={{ color: 'var(--grey-300)' }}>
                   A comunicação com a API do Gemini é feita exclusivamente pelo backend em Java, utilizando
                   uma chave de API armazenada de forma segura nas variáveis de ambiente — sem expor dados
                   sensíveis ou chaves no frontend. O texto gerado é armazenado no banco de dados para
@@ -469,7 +469,7 @@ export default function Explanation() {
                 <span className="mb-3 block text-2xl">{p.role}</span>
                 <h3 className="mb-3 text-sm font-bold" style={{ color: 'var(--purple-200)' }}>{p.title}</h3>
                 <p className="mb-2 text-[11px]" style={{ color: 'var(--green-100)' }}>Pode: <span style={{ color: 'var(--grey-300)' }}>{p.can}</span></p>
-                {p.cant && <p className="text-[11px]" style={{ color: 'var(--red-100)' }}>Não pode: <span style={{ color: 'var(--grey-400)' }}>{p.cant}</span></p>}
+                {p.cant && <p className="text-[11px]" style={{ color: 'var(--red-100)' }}>Não pode: <span style={{ color: 'var(--grey-300)' }}>{p.cant}</span></p>}
               </div>
             ))}
           </div>
@@ -524,16 +524,16 @@ export default function Explanation() {
         </div>
       </Slide>
 
-      {/* ===== 13. CTA / DÚVIDAS ===== */}
+      {/* ===== 13. ENCERRAMENTO ===== */}
       <Slide id="cta" bg="var(--grey-1300)">
         <div className="mx-auto max-w-3xl text-center">
           <SNum n="12" />
           <h2 className="mb-4 text-3xl font-bold md:text-4xl" style={{ color: 'var(--purple-100)' }}>
-            Dúvidas?
+            Obrigado!
           </h2>
           <p className="mb-6 text-sm leading-relaxed" style={{ color: 'var(--grey-300)' }}>
-            Este guia cobre os pontos principais, mas se surgir alguma pergunta técnica mais específica
-            durante a apresentação, pode contar com a gente para aprofundar.
+            Este guia foi preparado para ajudar vocês a apresentarem o Startdoor com confiança.
+            Esperamos que tenha sido útil!
           </p>
           <div className="mx-auto flex max-w-xs flex-col gap-3">
             <button
