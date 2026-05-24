@@ -70,47 +70,33 @@ const FUTURE_FEATURES = [
   },
 ];
 
-const SKILL_ICONS: Record<string, string> = {
-  React: 'react',
-  TypeScript: 'ts',
-  Tailwind: 'tailwindcss',
-  Vite: 'vite',
-  Java: 'java',
-  Spring: 'spring',
-  MySQL: 'mysql',
-  Docker: 'docker',
-  Figma: 'figma',
-  Nginx: 'nginx',
-  'GitHub Actions': 'githubactions',
-};
-
-const TECH_COLORS: Record<string, string> = {
-  React: '#61DAFB',
-  TypeScript: '#3178C6',
-  Tailwind: '#06B6D4',
-  Vite: '#646CFF',
-  MobX: '#FF9955',
-  'React Router': '#CA4245',
-  'React Hook Form': '#EC5990',
-  Zod: '#3E67B1',
-  Axios: '#5A29E4',
-  'Chart.js': '#FF6384',
-  Java: '#ED8B00',
-  Spring: '#6DB33F',
-  JWT: '#000000',
-  'JPA / Hibernate': '#59666C',
-  'Gemini API': '#8E75B2',
-  JavaMailSender: '#ED8B00',
-  MVC: '#6DB33F',
-  Lombok: '#185B5B',
-  MySQL: '#4479A1',
-  Docker: '#2496ED',
-  Nginx: '#009639',
-  'GitHub Actions': '#2088FF',
-  Figma: '#F24E1E',
-  Swagger: '#85EA2D',
-  'Docker Hub': '#2496ED',
-  BCrypt: '#003545',
+const TECH_BADGES: Record<string, { name: string; color: string; logo?: string; url: string }> = {
+  React: { name: 'React', color: '#61DAFB', logo: 'react', url: 'https://react.dev' },
+  TypeScript: { name: 'TypeScript', color: '#3178C6', logo: 'typescript', url: 'https://www.typescriptlang.org' },
+  Tailwind: { name: 'Tailwind', color: '#06B6D4', logo: 'tailwindcss', url: 'https://tailwindcss.com' },
+  Vite: { name: 'Vite', color: '#646CFF', logo: 'vite', url: 'https://vitejs.dev' },
+  MobX: { name: 'MobX', color: '#FF9955', logo: 'mobx', url: 'https://mobx.js.org' },
+  'React Router': { name: 'React Router', color: '#CA4245', logo: 'reactrouter', url: 'https://reactrouter.com' },
+  'React Hook Form': { name: 'React Hook Form', color: '#EC5990', logo: 'reacthookform', url: 'https://react-hook-form.com' },
+  Zod: { name: 'Zod', color: '#3E67B1', logo: 'zod', url: 'https://zod.dev' },
+  Axios: { name: 'Axios', color: '#5A29E4', logo: 'axios', url: 'https://axios-http.com' },
+  'Chart.js': { name: 'Chart.js', color: '#FF6384', logo: 'chartdotjs', url: 'https://www.chartjs.org' },
+  Java: { name: 'Java', color: '#ED8B00', logo: 'openjdk', url: 'https://www.java.com' },
+  Spring: { name: 'Spring', color: '#6DB33F', logo: 'spring', url: 'https://spring.io' },
+  JWT: { name: 'JWT', color: '#000000', logo: 'jsonwebtokens', url: 'https://jwt.io' },
+  'JPA / Hibernate': { name: 'Hibernate', color: '#59666C', logo: 'hibernate', url: 'https://hibernate.org' },
+  'Gemini API': { name: 'Gemini', color: '#8E75B2', logo: 'googlegemini', url: 'https://deepmind.google/technologies/gemini' },
+  JavaMailSender: { name: 'Mail', color: '#ED8B00', url: 'https://javaee.github.io/javamail' },
+  MVC: { name: 'MVC', color: '#6DB33F', url: 'https://docs.spring.io/spring-framework/reference/web/webmvc.html' },
+  Lombok: { name: 'Lombok', color: '#185B5B', logo: 'lombok', url: 'https://projectlombok.org' },
+  MySQL: { name: 'MySQL', color: '#4479A1', logo: 'mysql', url: 'https://www.mysql.com' },
+  Docker: { name: 'Docker', color: '#2496ED', logo: 'docker', url: 'https://www.docker.com' },
+  Nginx: { name: 'Nginx', color: '#009639', logo: 'nginx', url: 'https://nginx.org' },
+  'GitHub Actions': { name: 'GitHub Actions', color: '#2088FF', logo: 'githubactions', url: 'https://github.com/features/actions' },
+  Figma: { name: 'Figma', color: '#F24E1E', logo: 'figma', url: 'https://www.figma.com' },
+  Swagger: { name: 'Swagger', color: '#85EA2D', logo: 'swagger', url: 'https://swagger.io' },
+  'Docker Hub': { name: 'Docker Hub', color: '#2496ED', logo: 'docker', url: 'https://hub.docker.com' },
+  BCrypt: { name: 'BCrypt', color: '#003545', url: 'https://en.wikipedia.org/wiki/Bcrypt' },
 };
 
 export default function Presentation() {
@@ -391,19 +377,13 @@ export default function Presentation() {
                 <p className="mb-3 text-xs font-bold uppercase tracking-wider" style={{ color: cat.c }}>{cat.t}</p>
                 <div className="flex flex-wrap gap-2">
                   {cat.items.map(item => {
-                    const color = TECH_COLORS[item];
-                    const iconId = SKILL_ICONS[item];
+                    const b = TECH_BADGES[item];
+                    if (!b) return <span key={item} className="text-[10px]" style={{ color: 'var(--grey-500)' }}>{item}</span>;
+                    const url = `https://img.shields.io/badge/${encodeURIComponent(b.name)}-${b.color.slice(1)}?style=for-the-badge${b.logo ? `&logo=${b.logo}&logoColor=white` : ''}`;
                     return (
-                      <span key={item} className="inline-flex items-center gap-1.5 rounded-full px-3 py-1 text-[11px] font-medium whitespace-nowrap"
-                        style={{
-                          backgroundColor: color ? `${color}20` : 'var(--grey-800)',
-                          color: color ?? 'var(--grey-300)',
-                          border: `1px solid ${color ? `${color}40` : 'var(--grey-700)'}`,
-                        }}
-                      >
-                        {iconId ? <img src={`https://skillicons.dev/icons?i=${iconId}`} alt="" className="h-4 w-4" /> : null}
-                        {item}
-                      </span>
+                      <a key={item} href={b.url} target="_blank" rel="noopener noreferrer" title={b.name}>
+                        <img alt={b.name} src={url} className="h-6 w-auto" />
+                      </a>
                     );
                   })}
                 </div>
