@@ -181,23 +181,13 @@ export default function Presentation() {
 
       <button
         onClick={toggleTheme}
-        className="no-print fixed right-24 top-3 z-50 rounded-lg px-3 py-1.5 text-xs font-medium transition-all"
-        style={{ backgroundColor: 'var(--grey-900)', color: 'var(--grey-300)' }}
-        onMouseEnter={e => (e.currentTarget.style.backgroundColor = 'var(--purple-500)')}
-        onMouseLeave={e => (e.currentTarget.style.backgroundColor = 'var(--grey-900)')}
+        className="no-print fixed left-14 top-3 z-50 rounded-lg p-2 transition-all"
+        style={{ color: 'var(--grey-300)' }}
+        onMouseEnter={e => (e.currentTarget.style.color = 'var(--purple-200)')}
+        onMouseLeave={e => (e.currentTarget.style.color = 'var(--grey-300)')}
         title={theme === 'dark' ? 'Modo claro' : 'Modo escuro'}
       >
-        {theme === 'dark' ? <SunIcon /> : <MoonIcon />}
-      </button>
-
-      <button
-        onClick={() => window.print()}
-        className="no-print fixed right-3 top-3 z-50 rounded-lg px-3 py-1.5 text-xs font-medium transition-all"
-        style={{ backgroundColor: 'var(--grey-900)', color: 'var(--grey-300)' }}
-        onMouseEnter={e => (e.currentTarget.style.backgroundColor = 'var(--purple-500)')}
-        onMouseLeave={e => (e.currentTarget.style.backgroundColor = 'var(--grey-900)')}
-      >
-        {'🖨️'} Exportar PDF
+        {theme === 'dark' ? <SunIcon size={18} /> : <MoonIcon size={18} />}
       </button>
 
       <div className="no-print fixed top-0 left-0 right-0 z-40 h-0.5" style={{ backgroundColor: 'var(--grey-800)' }}>
