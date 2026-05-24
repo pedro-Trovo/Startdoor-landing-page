@@ -483,23 +483,43 @@ export default function Explanation() {
           <h2 className="mb-6 text-3xl font-bold md:text-4xl" style={{ color: 'var(--purple-100)' }}>
             Infraestrutura
           </h2>
-          <div className="space-y-4">
-            <p className="text-base leading-relaxed" style={{ color: 'var(--grey-200)' }}>
-              Toda a aplicação roda dentro de containers Docker — que são como "pacotes" que contêm
-              tudo que o sistema precisa para funcionar, garantindo que rode igual em qualquer ambiente.
-            </p>
-            <p className="text-base leading-relaxed" style={{ color: 'var(--grey-200)' }}>
-              São 3 containers principais: um para o banco MySQL, um para o backend Java e um para o
-              Nginx (servidor web que gerencia as requisições e serve os arquivos do frontend).
-            </p>
-            <p className="text-base leading-relaxed" style={{ color: 'var(--grey-200)' }}>
-              Usamos GitHub Actions como sistema de integração contínua. A cada novo código enviado
-              para o branch principal, ele faz automaticamente o build das imagens Docker do backend
-              e do frontend e as publica no Docker Hub (startdoor/startdoor-backend e
-              startdoor/startdoor-frontend). O docker-compose.yml utilizado na implantação aponta
-              sempre para a versão mais recente (latest), garantindo que o sistema esteja sempre
-              atualizado.
-            </p>
+
+          <div className="mb-6 flex items-start gap-3 rounded-xl p-5" style={{ backgroundColor: 'var(--grey-1100)', border: '1px solid var(--grey-800)' }}>
+            <span className="mt-0.5 text-2xl">{'🐳'}</span>
+            <div>
+              <h3 className="mb-1 text-sm font-bold" style={{ color: 'var(--purple-200)' }}>Docker</h3>
+              <p className="text-sm leading-relaxed" style={{ color: 'var(--grey-300)' }}>
+                Toda a aplicação roda dentro de containers Docker — pacotes que contêm tudo que o sistema
+                precisa para funcionar, garantindo que rode igual em qualquer ambiente.
+              </p>
+            </div>
+          </div>
+
+          <div className="mb-6 grid gap-3 md:grid-cols-3">
+            {[
+              { icon: '🗄️', title: 'MySQL', desc: 'Banco de dados que armazena todas as informações do sistema — usuários, empresas, avaliações e comentários.' },
+              { icon: '☕', title: 'Backend Java', desc: 'Servidor com a lógica do sistema, regras de negócio, autenticação JWT e integração com a IA Gemini.' },
+              { icon: '🌐', title: 'Nginx', desc: 'Servidor web que distribui o frontend para os usuários e gerencia as requisições recebidas.' },
+            ].map((c) => (
+              <div key={c.title} className="rounded-xl p-5 text-center" style={{ backgroundColor: 'var(--grey-1100)', border: '1px solid var(--grey-800)' }}>
+                <span className="mb-3 block text-2xl">{c.icon}</span>
+                <h3 className="mb-2 text-sm font-bold" style={{ color: 'var(--purple-200)' }}>{c.title}</h3>
+                <p className="text-xs leading-relaxed" style={{ color: 'var(--grey-300)' }}>{c.desc}</p>
+              </div>
+            ))}
+          </div>
+
+          <div className="flex items-start gap-3 rounded-xl p-5" style={{ backgroundColor: 'var(--grey-1100)', border: '1px solid var(--grey-800)' }}>
+            <span className="mt-0.5 text-2xl">{'🔄'}</span>
+            <div>
+              <h3 className="mb-1 text-sm font-bold" style={{ color: 'var(--purple-200)' }}>Integração Contínua (CI/CD)</h3>
+              <p className="text-sm leading-relaxed" style={{ color: 'var(--grey-300)' }}>
+                Usamos GitHub Actions para automatizar o processo: a cada atualização no código, ele faz o
+                build das imagens Docker e as publica no Docker Hub (startdoor/startdoor-backend e
+                startdoor/startdoor-frontend). O docker-compose.yml da implantação sempre aponta para a
+                versão mais recente (latest), mantendo o sistema sempre atualizado.
+              </p>
+            </div>
           </div>
         </div>
       </Slide>
