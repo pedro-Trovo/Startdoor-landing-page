@@ -10,6 +10,7 @@ const slides = [
   { id: 'objectives', label: 'Objetivos' },
   { id: 'features', label: 'Funcionalidades' },
   { id: 'tech', label: 'Tecnologias' },
+  { id: 'demo', label: 'Demonstração' },
   { id: 'future', label: 'Futuro' },
   { id: 'qa', label: 'Dúvidas' },
   { id: 'thanks', label: 'Obrigado' },
@@ -393,7 +394,19 @@ export default function Presentation() {
         </div>
       </Slide>
 
-      {/* ===== 7. IMPLEMENTAÇÕES FUTURAS ===== */}
+      {/* ===== 7. DEMONSTRAÇÃO ===== */}
+      <Slide id="demo" bg="var(--grey-1300)">
+        <div className="mx-auto max-w-3xl text-center">
+          <p className="text-3xl font-bold md:text-4xl" style={{ color: 'var(--purple-100)' }}>
+            {'🖥️'} Demonstração do Sistema
+          </p>
+          <p className="mt-4 text-sm leading-relaxed" style={{ color: 'var(--grey-300)' }}>
+            demonstrando como a aplicação funciona na prática
+          </p>
+        </div>
+      </Slide>
+
+      {/* ===== 8. IMPLEMENTAÇÕES FUTURAS ===== */}
       <Slide id="future" bg="var(--grey-1300)">
         <div className="mx-auto max-w-5xl">
           <SNum n="06" />
