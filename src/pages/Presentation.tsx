@@ -366,24 +366,6 @@ export default function Presentation() {
             Tecnologias Utilizadas
           </h2>
 
-          <div className="mb-6 rounded-xl p-4" style={{ backgroundColor: 'var(--grey-1100)', border: '1px solid var(--grey-800)' }}>
-            <p className="mb-3 text-xs font-bold uppercase tracking-wider" style={{ color: 'var(--purple-200)' }}>
-              {'⭐'} Principais Tecnologias
-            </p>
-            <div className="flex flex-wrap items-center gap-x-3 gap-y-2">
-              <span className="text-[10px] font-bold uppercase" style={{ color: 'var(--purple-300)' }}>Frontend:</span>
-              {['React', 'TypeScript', 'Vite'].map(item => {
-                const b = TECH_BADGES[item];
-                return <img key={item} alt={b.name} src={`https://img.shields.io/badge/${encodeURIComponent(b.name)}-${b.color.slice(1)}?style=for-the-badge&logo=${b.logo}&logoColor=white`} className="h-6 w-auto" />;
-              })}
-              <span className="ml-2 text-[10px] font-bold uppercase" style={{ color: 'var(--blue-100)' }}>Backend:</span>
-              {['Java', 'Spring'].map(item => {
-                const b = TECH_BADGES[item];
-                return <img key={item} alt={b.name} src={`https://img.shields.io/badge/${encodeURIComponent(b.name)}-${b.color.slice(1)}?style=for-the-badge&logo=${b.logo}&logoColor=white`} className="h-6 w-auto" />;
-              })}
-            </div>
-          </div>
-
           <div className="grid gap-4 md:grid-cols-3">
             {[
               { t: 'Frontend', c: 'var(--purple-300)', items: ['React', 'TypeScript', 'Tailwind', 'Vite', 'MobX', 'React Router', 'React Hook Form', 'Zod', 'Axios', 'Chart.js'] },
@@ -475,35 +457,7 @@ export default function Presentation() {
           <h2 className="mb-4 text-4xl font-bold md:text-5xl" style={{ color: 'var(--purple-100)' }}>
             Obrigado pela Atenção!!!
           </h2>
-          <p className="mb-6 text-sm" style={{ color: 'var(--grey-300)' }}>
-            Acesse o projeto completo nos links abaixo
-          </p>
-
           <div className="mx-auto mb-8 flex max-w-md flex-col gap-3">
-            <a
-              href="https://github.com/Balbinao/Startdoor"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="flex items-center justify-center gap-2 rounded-xl px-5 py-3 text-sm font-medium transition-all"
-              style={{ backgroundColor: 'var(--grey-1100)', border: '1px solid var(--grey-800)', color: 'var(--grey-200)' }}
-              onMouseEnter={e => { e.currentTarget.style.borderColor = 'var(--purple-300)'; e.currentTarget.style.color = 'var(--purple-100)'; }}
-              onMouseLeave={e => { e.currentTarget.style.borderColor = 'var(--grey-800)'; e.currentTarget.style.color = 'var(--grey-200)'; }}
-            >
-              <img src="https://skillicons.dev/icons?i=github" alt="GitHub" className="h-5 w-5" />
-              Repositório no GitHub
-            </a>
-            <a
-              href="https://www.figma.com/proto/uMYDnHDMyCmws5SYpOI9VS/AvaliarEstagios_Prototipo"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="flex items-center justify-center gap-2 rounded-xl px-5 py-3 text-sm font-medium transition-all"
-              style={{ backgroundColor: 'var(--grey-1100)', border: '1px solid var(--grey-800)', color: 'var(--grey-200)' }}
-              onMouseEnter={e => { e.currentTarget.style.borderColor = 'var(--purple-300)'; e.currentTarget.style.color = 'var(--purple-100)'; }}
-              onMouseLeave={e => { e.currentTarget.style.borderColor = 'var(--grey-800)'; e.currentTarget.style.color = 'var(--grey-200)'; }}
-            >
-              <img src="https://skillicons.dev/icons?i=figma" alt="Figma" className="h-5 w-5" />
-              Protótipo no Figma
-            </a>
             <button
               onClick={() => navigate('/')}
               className="rounded-xl px-5 py-3 text-sm font-medium transition-all"
@@ -516,7 +470,7 @@ export default function Presentation() {
           </div>
 
           <p className="text-[10px]" style={{ color: 'var(--grey-500)' }}>
-            FATEC Ipiranga — ADS — 2025/2026
+            FATEC Ipiranga — ADS — 2026
           </p>
         </div>
       </Slide>
