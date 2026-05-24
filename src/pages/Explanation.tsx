@@ -326,17 +326,6 @@ export default function Explanation() {
             </div>
           </div>
 
-          <div className="flex items-start gap-3 rounded-xl p-4" style={{ backgroundColor: 'var(--grey-1000)', border: '1px solid var(--grey-700)' }}>
-            <span className="mt-0.5 text-lg">{'🔒'}</span>
-            <div>
-              <p className="mb-1 text-xs font-bold" style={{ color: 'var(--green-100)' }}>Requer autenticação</p>
-              <p className="text-xs leading-relaxed" style={{ color: 'var(--grey-300)' }}>
-                A home e as demais páginas do sistema exigem que o usuário esteja logado.
-                O acesso é controlado por token JWT — sem login, não é possível navegar pela
-                plataforma.
-              </p>
-            </div>
-          </div>
         </div>
       </Slide>
 
