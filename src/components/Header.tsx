@@ -5,7 +5,8 @@ import { useLocation, useNavigate } from 'react-router-dom';
 const navLinks = [
   { label: 'Início', href: '/' },
   { label: 'Equipe', href: '/#equipe' },
-  { label: 'Apresentação do Projeto', href: '/presentation' },
+  { label: 'Explicação do Projeto', href: '/explanation' },
+  { label: 'Apresentação', href: '/presentation' },
 ];
 
 export default function Header() {
