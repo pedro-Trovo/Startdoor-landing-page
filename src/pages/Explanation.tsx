@@ -20,6 +20,7 @@ const slides = [
   { id: 'permissoes', label: 'Permissões' },
   { id: 'comentarios', label: 'Comentários' },
   { id: 'infra', label: 'Infraestrutura' },
+  { id: 'metodologia', label: 'Metodologia' },
   { id: 'cta', label: 'Encerramento' },
 ];
 
@@ -802,10 +803,72 @@ export default function Explanation() {
         </div>
       </Slide>
 
-      {/* ===== 16. ENCERRAMENTO ===== */}
+      {/* ===== 16. METODOLOGIA ===== */}
+      <Slide id="metodologia" bg="var(--grey-1300)">
+        <div className="mx-auto max-w-4xl">
+          <SNum n="16" />
+          <h2 className="mb-6 text-3xl font-bold md:text-4xl" style={{ color: 'var(--purple-100)' }}>
+            Metodologia de Desenvolvimento
+          </h2>
+          <p className="mb-6 text-sm" style={{ color: 'var(--grey-400)' }}>
+            Como organizamos o trabalho ao longo do projeto
+          </p>
+
+          <div className="mb-6 grid gap-4 md:grid-cols-2 print:grid-cols-2">
+            <div className="rounded-xl p-5" style={{ backgroundColor: 'var(--grey-1100)', border: '1px solid var(--grey-800)' }}>
+              <span className="mb-3 block text-2xl">{'🏁'}</span>
+              <h3 className="mb-2 text-sm font-bold" style={{ color: 'var(--purple-200)' }}>Sprints curtas</h3>
+              <p className="text-xs leading-relaxed" style={{ color: 'var(--grey-300)' }}>
+                Ciclos de 1 a 2 semanas com entregas funcionais ao final de cada sprint,
+                permitindo feedback rápido e correções ágeis.
+              </p>
+            </div>
+            <div className="rounded-xl p-5" style={{ backgroundColor: 'var(--grey-1100)', border: '1px solid var(--grey-800)' }}>
+              <span className="mb-3 block text-2xl">{'👥'}</span>
+              <h3 className="mb-2 text-sm font-bold" style={{ color: 'var(--purple-200)' }}>Times paralelos</h3>
+              <p className="text-xs leading-relaxed" style={{ color: 'var(--grey-300)' }}>
+                Cada membro desenvolvia em sua própria branch, integrando as funcionalidades ao
+                final de cada ciclo de forma organizada.
+              </p>
+            </div>
+            <div className="rounded-xl p-5" style={{ backgroundColor: 'var(--grey-1100)', border: '1px solid var(--grey-800)' }}>
+              <span className="mb-3 block text-2xl">{'🔄'}</span>
+              <h3 className="mb-2 text-sm font-bold" style={{ color: 'var(--purple-200)' }}>Alinhamento semanal</h3>
+              <p className="text-xs leading-relaxed" style={{ color: 'var(--grey-300)' }}>
+                Reuniões semanais para inspecionar o progresso, discutir dificuldades e
+                ajustar as prioridades da sprint seguinte.
+              </p>
+            </div>
+            <div className="rounded-xl p-5" style={{ backgroundColor: 'var(--grey-1100)', border: '1px solid var(--grey-800)' }}>
+              <span className="mb-3 block text-2xl">{'📋'}</span>
+              <h3 className="mb-2 text-sm font-bold" style={{ color: 'var(--purple-200)' }}>Backlog vivo</h3>
+              <p className="text-xs leading-relaxed" style={{ color: 'var(--grey-300)' }}>
+                Melhorias em funcionalidades de sprints anteriores eram planejadas entre
+                sprints — o escopo nunca era alterado durante uma sprint em andamento.
+              </p>
+            </div>
+          </div>
+
+          <div className="rounded-xl p-5" style={{ backgroundColor: 'var(--grey-1100)', border: '1px solid var(--grey-800)' }}>
+            <div className="flex items-start gap-3">
+              <span className="mt-0.5 text-lg">{'📌'}</span>
+              <div>
+                <p className="mb-1 text-sm font-bold" style={{ color: 'var(--green-100)' }}>Resumo</p>
+                <p className="text-sm leading-relaxed" style={{ color: 'var(--grey-300)' }}>
+                  Utilizamos Scrum com sprints curtas, entregas incrementais e adaptação contínua.
+                  O backlog era revisado a cada sprint, nunca alterado durante uma sprint em andamento.
+                  As 4 sprints entregaram desde a base de autenticação até o match com IA.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </Slide>
+
+      {/* ===== 17. ENCERRAMENTO ===== */}
       <Slide id="cta" bg="var(--grey-1300)">
         <div className="mx-auto max-w-3xl text-center">
-          <SNum n="16" />
+          <SNum n="17" />
           <h2 className="mb-4 text-3xl font-bold md:text-4xl" style={{ color: 'var(--purple-100)' }}>
             Obrigado!
           </h2>
