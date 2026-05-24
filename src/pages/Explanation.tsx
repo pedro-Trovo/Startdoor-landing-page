@@ -6,10 +6,10 @@ import { useNavigate } from 'react-router-dom';
 const slides = [
   { id: 'cover', label: 'Introdução' },
   { id: 'overview', label: 'O que é' },
-  { id: 'home', label: 'Home/Dashboard' },
   { id: 'flow-1', label: 'Cadastro e Pesquisa' },
   { id: 'flow-2', label: 'Avaliação e Match' },
   { id: 'flow-3', label: 'IA e Favoritos' },
+  { id: 'home', label: 'Home/Dashboard' },
   { id: 'match-1', label: 'Match — Fórmula' },
   { id: 'match-2', label: 'Match — Exemplo' },
   { id: 'radar', label: 'Gráfico Radar' },
@@ -176,53 +176,10 @@ export default function Explanation() {
         </div>
       </Slide>
 
-      {/* ===== 3. HOME / DASHBOARD ===== */}
-      <Slide id="home" bg="var(--grey-1200)">
-        <div className="mx-auto max-w-4xl">
-          <SNum n="02" />
-          <h2 className="mb-6 text-3xl font-bold md:text-4xl" style={{ color: 'var(--purple-100)' }}>
-            Página Inicial — o que o visitante vê primeiro?
-          </h2>
-          <p className="mb-6 text-sm" style={{ color: 'var(--grey-400)' }}>
-            A home do Startdoor é pública e dá visibilidade imediata ao conteúdo da plataforma
-          </p>
-
-          <div className="mb-6 grid gap-4 md:grid-cols-2 print:grid-cols-2">
-            <div className="rounded-xl p-5" style={{ backgroundColor: 'var(--grey-1100)', border: '1px solid var(--grey-800)' }}>
-              <span className="mb-3 block text-2xl">{'🕐'}</span>
-              <h3 className="mb-2 text-sm font-bold" style={{ color: 'var(--purple-200)' }}>Avaliações Recentes</h3>
-              <p className="text-xs leading-relaxed" style={{ color: 'var(--grey-300)' }}>
-                As 4 avaliações mais recentes da plataforma são exibidas na home, com nota geral,
-                nome da empresa e, se o autor não optou por anonimato, seu nome e foto.
-              </p>
-            </div>
-            <div className="rounded-xl p-5" style={{ backgroundColor: 'var(--grey-1100)', border: '1px solid var(--grey-800)' }}>
-              <span className="mb-3 block text-2xl">{'🏆'}</span>
-              <h3 className="mb-2 text-sm font-bold" style={{ color: 'var(--purple-200)' }}>Empresas Top</h3>
-              <p className="text-xs leading-relaxed" style={{ color: 'var(--grey-300)' }}>
-                As 4 empresas com a maior média geral aparecem em destaque, permitindo ao visitante
-                conhecer as melhores avaliadas de cara, sem precisar pesquisar.
-              </p>
-            </div>
-          </div>
-
-          <div className="flex items-start gap-3 rounded-xl p-4" style={{ backgroundColor: 'var(--grey-1000)', border: '1px solid var(--grey-700)' }}>
-            <span className="mt-0.5 text-lg">{'🔓'}</span>
-            <div>
-              <p className="mb-1 text-xs font-bold" style={{ color: 'var(--green-100)' }}>Sem necessidade de login</p>
-              <p className="text-xs leading-relaxed" style={{ color: 'var(--grey-300)' }}>
-                Qualquer pessoa pode navegar pela home, ver avaliações e consultar empresas — o cadastro
-                só é exigido para avaliar, comentar ou favoritar.
-              </p>
-            </div>
-          </div>
-        </div>
-      </Slide>
-
-      {/* ===== 4. FLOW — CADASTRO E PESQUISA ===== */}
+      {/* ===== 3. FLOW — CADASTRO E PESQUISA ===== */}
       <Slide id="flow-1" bg="var(--grey-1300)">
         <div className="mx-auto max-w-4xl">
-          <SNum n="03" />
+          <SNum n="02" />
           <h2 className="mb-6 text-3xl font-bold md:text-4xl" style={{ color: 'var(--purple-100)' }}>
             Como o sistema funciona?
           </h2>
@@ -273,7 +230,7 @@ export default function Explanation() {
       {/* ===== 4. FLOW — AVALIAÇÃO E MATCH ===== */}
       <Slide id="flow-2" bg="var(--grey-1200)">
         <div className="mx-auto max-w-4xl">
-          <SNum n="04" />
+          <SNum n="03" />
           <h2 className="mb-6 text-3xl font-bold md:text-4xl" style={{ color: 'var(--purple-100)' }}>
             Como o sistema funciona?
           </h2>
@@ -314,7 +271,7 @@ export default function Explanation() {
       {/* ===== 5. FLOW — IA E FAVORITOS ===== */}
       <Slide id="flow-3" bg="var(--grey-1300)">
         <div className="mx-auto max-w-4xl">
-          <SNum n="05" />
+          <SNum n="04" />
           <h2 className="mb-6 text-3xl font-bold md:text-4xl" style={{ color: 'var(--purple-100)' }}>
             Como o sistema funciona?
           </h2>
@@ -335,6 +292,50 @@ export default function Explanation() {
               title="Favoritar"
               desc="O estudante pode salvar empresas como favoritas para consultar depois, montando uma lista de interesse personalizada."
             />
+          </div>
+        </div>
+      </Slide>
+
+      {/* ===== 6. HOME / DASHBOARD ===== */}
+      <Slide id="home" bg="var(--grey-1200)">
+        <div className="mx-auto max-w-4xl">
+          <SNum n="05" />
+          <h2 className="mb-6 text-3xl font-bold md:text-4xl" style={{ color: 'var(--purple-100)' }}>
+            Página Inicial — o que o usuário logado vê primeiro?
+          </h2>
+          <p className="mb-6 text-sm" style={{ color: 'var(--grey-400)' }}>
+            A home do Startdoor exibe um resumo do conteúdo da plataforma para usuários autenticados
+          </p>
+
+          <div className="mb-6 grid gap-4 md:grid-cols-2 print:grid-cols-2">
+            <div className="rounded-xl p-5" style={{ backgroundColor: 'var(--grey-1100)', border: '1px solid var(--grey-800)' }}>
+              <span className="mb-3 block text-2xl">{'🕐'}</span>
+              <h3 className="mb-2 text-sm font-bold" style={{ color: 'var(--purple-200)' }}>Avaliações Recentes</h3>
+              <p className="text-xs leading-relaxed" style={{ color: 'var(--grey-300)' }}>
+                As 4 avaliações mais recentes da plataforma são exibidas na home, com nota geral,
+                nome da empresa e, se o autor não optou por anonimato, seu nome e foto.
+              </p>
+            </div>
+            <div className="rounded-xl p-5" style={{ backgroundColor: 'var(--grey-1100)', border: '1px solid var(--grey-800)' }}>
+              <span className="mb-3 block text-2xl">{'🏆'}</span>
+              <h3 className="mb-2 text-sm font-bold" style={{ color: 'var(--purple-200)' }}>Empresas Top</h3>
+              <p className="text-xs leading-relaxed" style={{ color: 'var(--grey-300)' }}>
+                As 4 empresas com a maior média geral aparecem em destaque, permitindo conhecer
+                as melhores avaliadas de cara, sem precisar pesquisar.
+              </p>
+            </div>
+          </div>
+
+          <div className="flex items-start gap-3 rounded-xl p-4" style={{ backgroundColor: 'var(--grey-1000)', border: '1px solid var(--grey-700)' }}>
+            <span className="mt-0.5 text-lg">{'🔒'}</span>
+            <div>
+              <p className="mb-1 text-xs font-bold" style={{ color: 'var(--green-100)' }}>Requer autenticação</p>
+              <p className="text-xs leading-relaxed" style={{ color: 'var(--grey-300)' }}>
+                A home e as demais páginas do sistema exigem que o usuário esteja logado.
+                O acesso é controlado por token JWT — sem login, não é possível navegar pela
+                plataforma.
+              </p>
+            </div>
           </div>
         </div>
       </Slide>
@@ -550,7 +551,7 @@ export default function Explanation() {
             {[
               { icon: '✅', title: 'Match confirmado', desc: 'O sistema identifica que a empresa atende ≥80% das expectativas do estudante' },
               { icon: '📤', title: 'Dados enviados', desc: 'O backend envia as notas, preferências do estudante e as médias da empresa para a API do Gemini' },
-              { icon: '🧠', title: 'IA processa', desc: 'O Gemini analisa os números e gera um texto explicativo personalizado em linguagem natural' },
+              { icon: '🧠', title: 'IA processa', desc: 'O Gemini analisa os números e gera um texto explicativo personalizado justificando o cálculo do match' },
               { icon: '💬', title: 'Texto exibido', desc: 'A recomendação aparece na plataforma para o estudante ler e entender o match' },
             ].map((step, i) => (
               <div key={step.title} className="rounded-xl p-4 text-center" style={{ backgroundColor: 'var(--grey-1100)', border: '1px solid var(--grey-800)' }}>
