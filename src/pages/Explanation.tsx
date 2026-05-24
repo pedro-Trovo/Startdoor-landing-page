@@ -347,8 +347,9 @@ export default function Explanation() {
             </div>
 
             <p className="text-xs leading-relaxed" style={{ color: 'var(--grey-300)' }}>
-              O algoritmo repete para as 12 competências, soma todos os erros ponderados e calcula
-              a afinidade final — se ≥80%, o match é confirmado.
+              O algoritmo repete para as 12 competências e aplica a fórmula:{' '}
+              <code style={{ color: 'var(--green-100)' }}>afinidade = ((somaPesosMaximos − somaErrosPonderados) / somaPesosMaximos) × 100</code>.
+              Se o resultado for ≥80%, o match é confirmado.
             </p>
           </div>
 
