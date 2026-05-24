@@ -271,19 +271,20 @@ export default function Explanation() {
               A lógica do match em uma frase:
             </p>
             <p className="text-base font-semibold leading-relaxed md:text-lg" style={{ color: 'var(--purple-100)' }}>
-              O estudante define suas expectativas → o sistema compara com as médias reais da empresa →
-              se <span style={{ color: 'var(--green-100)' }}>≥80%</span> das competências atendem ou superam a expectativa, é match!
+              O estudante define suas expectativas → o sistema calcula a afinidade com gaps ponderados →
+              se <span style={{ color: 'var(--green-100)' }}>≥80%</span> de afinidade, é match!
             </p>
           </div>
 
           <div className="rounded-xl p-5" style={{ backgroundColor: 'var(--grey-1100)', border: '1px solid var(--grey-800)' }}>
             <span className="mb-2 block text-lg">{'📐'}</span>
-            <h3 className="mb-3 text-sm font-bold" style={{ color: 'var(--purple-200)' }}>Como funciona</h3>
+            <h3 className="mb-3 text-sm font-bold" style={{ color: 'var(--purple-200)' }}>Como funciona o cálculo</h3>
             <ul className="space-y-2 text-sm leading-relaxed" style={{ color: 'var(--grey-300)' }}>
-              <li>{'•'} Estudante define nota ideal (1 a 5) para cada competência</li>
-              <li>{'•'} Plataforma calcula a média real da empresa em cada uma</li>
-              <li>{'•'} Compara: se a média da empresa ≥ expectativa, a competência está OK</li>
-              <li>{'•'} Se ≥80% das competências estão OK, o match é confirmado</li>
+              <li>{'•'} Estudante define nota ideal (1 a 5) para cada competência — quanto maior a nota, maior o <strong style={{ color: 'var(--grey-200)' }}>peso</strong> dela no resultado</li>
+              <li>{'•'} Plataforma calcula a média real da empresa em cada competência</li>
+              <li>{'•'} Se a média ≥ expectativa, o gap é zero; se menor, o gap é a diferença</li>
+              <li>{'•'} Cada gap é multiplicado pelo peso da competência, gerando um erro ponderado</li>
+              <li>{'•'} A afinidade é: <code style={{ color: 'var(--green-100)' }}>((total - erros) / total) × 100</code> — se ≥80%, o match é confirmado</li>
             </ul>
           </div>
         </div>
@@ -301,9 +302,12 @@ export default function Explanation() {
             <span className="mb-2 block text-lg">{'💡'}</span>
             <h3 className="mb-3 text-sm font-bold" style={{ color: 'var(--purple-200)' }}>Exemplo prático</h3>
             <p className="text-sm leading-relaxed" style={{ color: 'var(--grey-300)' }}>
-              Se o estudante considera "aprendizado" como nota 4 ideal e a média da empresa nessa
-              competência é 4,2 — esse critério está OK. Repetindo para as 12 competências, se
-              10 ou mais (≥80%) estiverem OK, o match acontece.
+              Se o estudante define "aprendizado" como nota 5 (peso 5) e a média da empresa é 4,2,
+              o gap é 0,3, gerando um erro ponderado de 0,3 × 5 = 1,5 de um máximo de 4 × 5 = 20
+              para essa competência. Se define "benefícios" como nota 2 (peso 2) e a média é 1,
+              o gap é 1, gerando um erro de 1 × 2 = 2 de um máximo de 4 × 2 = 8. O algoritmo
+              repete para as 12 competências, soma todos os erros ponderados e calcula a afinidade
+              final — se for ≥80%, o match é confirmado.
             </p>
           </div>
 
@@ -442,7 +446,7 @@ export default function Explanation() {
         </div>
       </Slide>
 
-      {/* ===== 9. ARQUITETURA — FRONTEND ===== */}
+      {/* ===== 10. ARQUITETURA — FRONTEND ===== */}
       <Slide id="frontend" bg="var(--grey-1200)">
         <div className="mx-auto max-w-4xl">
           <SNum n="09" />
@@ -471,7 +475,7 @@ export default function Explanation() {
         </div>
       </Slide>
 
-      {/* ===== 10. ARQUITETURA — BACKEND ===== */}
+      {/* ===== 11. ARQUITETURA — BACKEND ===== */}
       <Slide id="backend" bg="var(--grey-1300)">
         <div className="mx-auto max-w-4xl">
           <SNum n="10" />
@@ -500,7 +504,7 @@ export default function Explanation() {
         </div>
       </Slide>
 
-      {/* ===== 11. PERMISSÕES ===== */}
+      {/* ===== 12. PERMISSÕES ===== */}
       <Slide id="permissoes" bg="var(--grey-1200)">
         <div className="mx-auto max-w-4xl">
           <SNum n="11" />
@@ -528,7 +532,7 @@ export default function Explanation() {
         </div>
       </Slide>
 
-      {/* ===== 12. COMENTÁRIOS ===== */}
+      {/* ===== 13. COMENTÁRIOS ===== */}
       <Slide id="comentarios" bg="var(--grey-1300)">
         <div className="mx-auto max-w-4xl">
           <SNum n="12" />
@@ -567,10 +571,9 @@ export default function Explanation() {
             <div>
               <p className="mb-1 text-xs font-bold" style={{ color: 'var(--green-100)' }}>Moderação</p>
               <p className="text-xs leading-relaxed" style={{ color: 'var(--grey-300)' }}>
-                O administrador da plataforma pode editar ou excluir qualquer comentário,
-                garantindo que o conteúdo se mantenha respeitoso e dentro das regras da comunidade.
                 Comentários e respostas seguem o modelo CRUD (criar, ler, atualizar, deletar)
                 com validação de propriedade — cada usuário só altera o que é seu.
+                O estudante gerencia seu comentário, a empresa gerencia sua resposta.
               </p>
             </div>
           </div>
@@ -600,7 +603,7 @@ export default function Explanation() {
             {[
               { icon: '🗄️', title: 'MySQL', desc: 'Banco de dados que armazena todas as informações do sistema — usuários, empresas, avaliações e comentários.' },
               { icon: '☕', title: 'Backend Java', desc: 'Servidor com a lógica do sistema, regras de negócio, autenticação JWT e integração com a IA Gemini.' },
-              { icon: '🌐', title: 'Nginx', desc: 'Servidor web que distribui o frontend para os usuários e gerencia as requisições recebidas.' },
+              { icon: '🌐', title: 'Nginx', desc: 'Servidor web incluso no container do frontend, responsável por servir a página React e gerenciar as requisições.' },
             ].map((c) => (
               <div key={c.title} className="rounded-xl p-5 text-center" style={{ backgroundColor: 'var(--grey-1100)', border: '1px solid var(--grey-800)' }}>
                 <span className="mb-3 block text-2xl">{c.icon}</span>
