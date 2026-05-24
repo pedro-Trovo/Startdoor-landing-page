@@ -190,7 +190,7 @@ export default function Explanation() {
               <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-lg text-lg" style={{ backgroundColor: 'var(--purple-600)' }}>{'👤'}</span>
               <div className="flex-1">
                 <h3 className="mb-3 font-semibold" style={{ color: 'var(--grey-100)' }}>
-                  <span style={{ color: 'var(--purple-200)' }}>1.</span> Cadastro
+                  <span style={{ color: 'var(--purple-200)' }}>1.</span> Cadastro e Login
                 </h3>
                 <div className="grid gap-3 md:grid-cols-3">
                   <div className="rounded-lg p-3" style={{ backgroundColor: 'var(--grey-1200)', border: '1px solid var(--grey-800)' }}>
