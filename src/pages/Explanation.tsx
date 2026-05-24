@@ -459,7 +459,7 @@ export default function Explanation() {
             Cada tipo de usuário tem acesso a funcionalidades específicas
           </p>
 
-          <div className="grid gap-4 md:grid-cols-3">
+          <div className="grid gap-4 md:grid-cols-3 print:grid-cols-3">
             {[
               { role: '🎓', title: 'Estudante', can: 'Avaliar empresas, comentar, favoritar, ver matches e recomendações da IA', cant: 'Responder como empresa, gerenciar setores ou acessar dados de outros estudantes' },
               { role: '🏢', title: 'Empresa', can: 'Criar e editar perfil público, responder comentários recebidos, ver suas avaliações', cant: 'Avaliar outras empresas, acessar dados pessoais de estudantes' },
@@ -495,7 +495,7 @@ export default function Explanation() {
             </div>
           </div>
 
-          <div className="mb-6 grid gap-3 md:grid-cols-3">
+          <div className="mb-6 grid gap-3 md:grid-cols-3 print:grid-cols-3">
             {[
               { icon: '🗄️', title: 'MySQL', desc: 'Banco de dados que armazena todas as informações do sistema — usuários, empresas, avaliações e comentários.' },
               { icon: '☕', title: 'Backend Java', desc: 'Servidor com a lógica do sistema, regras de negócio, autenticação JWT e integração com a IA Gemini.' },
