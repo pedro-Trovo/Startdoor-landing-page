@@ -535,26 +535,7 @@ export default function Explanation() {
             Este guia foi preparado para ajudar vocês a apresentarem o Startdoor com confiança.
             Esperamos que tenha sido útil!
           </p>
-          <div className="mx-auto flex max-w-xs flex-col gap-3">
-            <button
-              onClick={() => navigate('/presentation')}
-              className="rounded-xl px-6 py-3 text-sm font-medium transition-all"
-              style={{ backgroundColor: 'var(--purple-500)', color: 'var(--grey-100)' }}
-              onMouseEnter={e => (e.currentTarget.style.backgroundColor = 'var(--purple-400)')}
-              onMouseLeave={e => (e.currentTarget.style.backgroundColor = 'var(--purple-500)')}
-            >
-              Ver Apresentação Completa {'→'}
-            </button>
-            <button
-              onClick={() => navigate('/')}
-              className="rounded-xl px-5 py-3 text-sm font-medium transition-all"
-              style={{ backgroundColor: 'var(--grey-1100)', border: '1px solid var(--grey-800)', color: 'var(--grey-200)' }}
-              onMouseEnter={e => { e.currentTarget.style.borderColor = 'var(--purple-300)'; e.currentTarget.style.color = 'var(--purple-100)'; }}
-              onMouseLeave={e => { e.currentTarget.style.borderColor = 'var(--grey-800)'; e.currentTarget.style.color = 'var(--grey-200)'; }}
-            >
-              {'←'} Voltar ao Início
-            </button>
-          </div>
+          <div className="h-4" />
         </div>
       </Slide>
     </div>
