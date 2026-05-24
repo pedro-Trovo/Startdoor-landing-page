@@ -301,13 +301,31 @@ export default function Explanation() {
           <div className="mb-6 rounded-xl p-5" style={{ backgroundColor: 'var(--grey-1100)', border: '1px solid var(--grey-800)' }}>
             <span className="mb-2 block text-lg">{'💡'}</span>
             <h3 className="mb-3 text-sm font-bold" style={{ color: 'var(--purple-200)' }}>Exemplo prático</h3>
-            <p className="text-sm leading-relaxed" style={{ color: 'var(--grey-300)' }}>
-              Se o estudante define "aprendizado" como nota 5 (peso 5) e a média da empresa é 4,2,
-              o gap é 0,3, gerando um erro ponderado de 0,3 × 5 = 1,5 de um máximo de 4 × 5 = 20
-              para essa competência. Se define "benefícios" como nota 2 (peso 2) e a média é 1,
-              o gap é 1, gerando um erro de 1 × 2 = 2 de um máximo de 4 × 2 = 8. O algoritmo
-              repete para as 12 competências, soma todos os erros ponderados e calcula a afinidade
-              final — se for ≥80%, o match é confirmado.
+
+            <div className="mb-4 grid gap-4 md:grid-cols-2">
+              <div className="rounded-lg p-4" style={{ backgroundColor: 'var(--grey-1200)', border: '1px solid var(--grey-800)' }}>
+                <p className="mb-2 text-xs font-bold" style={{ color: 'var(--purple-200)' }}>Aprendizado (peso 5)</p>
+                <div className="space-y-1 text-[11px] leading-relaxed" style={{ color: 'var(--grey-300)' }}>
+                  <p>{'•'} Expectativa: <span style={{ color: 'var(--grey-100)' }}>5</span></p>
+                  <p>{'•'} Média empresa: <span style={{ color: 'var(--grey-100)' }}>4,2</span></p>
+                  <p>{'•'} Gap: max(0, 5 − 4,2) = <span style={{ color: 'var(--grey-100)' }}>0,3</span></p>
+                  <p>{'•'} Erro: 0,3 × 5 = <span style={{ color: 'var(--green-100)' }}>1,5</span> de máx 4×5 = 20</p>
+                </div>
+              </div>
+              <div className="rounded-lg p-4" style={{ backgroundColor: 'var(--grey-1200)', border: '1px solid var(--grey-800)' }}>
+                <p className="mb-2 text-xs font-bold" style={{ color: 'var(--purple-200)' }}>Benefícios (peso 2)</p>
+                <div className="space-y-1 text-[11px] leading-relaxed" style={{ color: 'var(--grey-300)' }}>
+                  <p>{'•'} Expectativa: <span style={{ color: 'var(--grey-100)' }}>2</span></p>
+                  <p>{'•'} Média empresa: <span style={{ color: 'var(--grey-100)' }}>1</span></p>
+                  <p>{'•'} Gap: max(0, 2 − 1) = <span style={{ color: 'var(--grey-100)' }}>1</span></p>
+                  <p>{'•'} Erro: 1 × 2 = <span style={{ color: 'var(--green-100)' }}>2</span> de máx 4×2 = 8</p>
+                </div>
+              </div>
+            </div>
+
+            <p className="text-xs leading-relaxed" style={{ color: 'var(--grey-300)' }}>
+              O algoritmo repete para as 12 competências, soma todos os erros ponderados e calcula
+              a afinidade final — se ≥80%, o match é confirmado.
             </p>
           </div>
 
