@@ -87,8 +87,6 @@ const TECH_BADGES: Record<string, { name: string; color: string; logo?: string; 
   JWT: { name: 'JWT', color: '#000000', logo: 'jsonwebtokens', url: 'https://jwt.io' },
   'JPA / Hibernate': { name: 'Hibernate', color: '#59666C', logo: 'hibernate', url: 'https://hibernate.org' },
   'Gemini API': { name: 'Gemini', color: '#8E75B2', logo: 'googlegemini', url: 'https://deepmind.google/technologies/gemini' },
-  JavaMailSender: { name: 'Mail', color: '#ED8B00', url: 'https://javaee.github.io/javamail' },
-  MVC: { name: 'MVC', color: '#6DB33F', url: 'https://docs.spring.io/spring-framework/reference/web/webmvc.html' },
   Lombok: { name: 'Lombok', color: '#185B5B', logo: 'lombok', url: 'https://projectlombok.org' },
   MySQL: { name: 'MySQL', color: '#4479A1', logo: 'mysql', url: 'https://www.mysql.com' },
   Docker: { name: 'Docker', color: '#2496ED', logo: 'docker', url: 'https://www.docker.com' },
@@ -368,10 +366,28 @@ export default function Presentation() {
             Tecnologias Utilizadas
           </h2>
 
+          <div className="mb-6 rounded-xl p-4" style={{ backgroundColor: 'var(--grey-1100)', border: '1px solid var(--grey-800)' }}>
+            <p className="mb-3 text-xs font-bold uppercase tracking-wider" style={{ color: 'var(--purple-200)' }}>
+              {'⭐'} Principais Tecnologias
+            </p>
+            <div className="flex flex-wrap items-center gap-x-3 gap-y-2">
+              <span className="text-[10px] font-bold uppercase" style={{ color: 'var(--purple-300)' }}>Frontend:</span>
+              {['React', 'TypeScript', 'Vite'].map(item => {
+                const b = TECH_BADGES[item];
+                return <img key={item} alt={b.name} src={`https://img.shields.io/badge/${encodeURIComponent(b.name)}-${b.color.slice(1)}?style=for-the-badge&logo=${b.logo}&logoColor=white`} className="h-6 w-auto" />;
+              })}
+              <span className="ml-2 text-[10px] font-bold uppercase" style={{ color: 'var(--blue-100)' }}>Backend:</span>
+              {['Java', 'Spring'].map(item => {
+                const b = TECH_BADGES[item];
+                return <img key={item} alt={b.name} src={`https://img.shields.io/badge/${encodeURIComponent(b.name)}-${b.color.slice(1)}?style=for-the-badge&logo=${b.logo}&logoColor=white`} className="h-6 w-auto" />;
+              })}
+            </div>
+          </div>
+
           <div className="grid gap-4 md:grid-cols-3">
             {[
               { t: 'Frontend', c: 'var(--purple-300)', items: ['React', 'TypeScript', 'Tailwind', 'Vite', 'MobX', 'React Router', 'React Hook Form', 'Zod', 'Axios', 'Chart.js'] },
-              { t: 'Backend e IA', c: 'var(--blue-100)', items: ['Java', 'Spring', 'JWT', 'JPA / Hibernate', 'Gemini API', 'JavaMailSender', 'MVC', 'Lombok'] },
+              { t: 'Backend e IA', c: 'var(--blue-100)', items: ['Java', 'Spring', 'JWT', 'JPA / Hibernate', 'Gemini API'] },
               { t: 'DevOps e Design', c: 'var(--green-100)', items: ['MySQL', 'Docker', 'Nginx', 'GitHub Actions', 'Figma', 'Swagger', 'Docker Hub', 'BCrypt'] },
             ].map(cat => (
               <div key={cat.t} className="rounded-xl p-5" style={{ backgroundColor: 'var(--grey-1100)', border: '1px solid var(--grey-800)' }}>
