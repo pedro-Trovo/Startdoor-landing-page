@@ -181,7 +181,7 @@ export default function Presentation() {
 
       <button
         onClick={toggleTheme}
-        className="no-print fixed left-14 top-3 z-50 rounded-lg p-2 transition-all"
+        className="no-print fixed right-3 top-3 z-50 rounded-lg p-2 transition-all"
         style={{ color: 'var(--grey-300)' }}
         onMouseEnter={e => (e.currentTarget.style.color = 'var(--purple-200)')}
         onMouseLeave={e => (e.currentTarget.style.color = 'var(--grey-300)')}
