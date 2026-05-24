@@ -602,8 +602,8 @@ export default function Explanation() {
           <div className="mb-6 grid gap-3 md:grid-cols-3 print:grid-cols-3">
             {[
               { icon: '🗄️', title: 'MySQL', desc: 'Banco de dados que armazena todas as informações do sistema — usuários, empresas, avaliações e comentários.' },
-              { icon: '☕', title: 'Backend Java', desc: 'Servidor com a lógica do sistema, regras de negócio, autenticação JWT e integração com a IA Gemini.' },
-              { icon: '🌐', title: 'Nginx', desc: 'Servidor web incluso no container do frontend, responsável por servir a página React e gerenciar as requisições.' },
+              { icon: '☕', title: 'Backend', desc: 'Servidor com a lógica do sistema, regras de negócio, autenticação JWT e integração com a IA Gemini.' },
+              { icon: '🌐', title: 'Frontend', desc: 'Container com React + Nginx, responsável por servir a página e gerenciar as requisições dos usuários.' },
             ].map((c) => (
               <div key={c.title} className="rounded-xl p-5 text-center" style={{ backgroundColor: 'var(--grey-1100)', border: '1px solid var(--grey-800)' }}>
                 <span className="mb-3 block text-2xl">{c.icon}</span>
