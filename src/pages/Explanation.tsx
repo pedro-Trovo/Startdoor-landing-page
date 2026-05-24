@@ -188,7 +188,7 @@ export default function Explanation() {
               number="1"
               icon="👤"
               title="Cadastro"
-              desc="Estudantes e empresas criam suas contas com email e senha. A senha é protegida com criptografia. Após o login, o servidor gera um token JWT único, que deve ser enviado no cabeçalho (header) de toda requisição seguinte. Esse token informa ao servidor quem é o usuário e quais permissões ele tem, eliminando a necessidade de enviar a senha novamente."
+              desc="Estudantes e empresas criam suas contas com email e senha. A senha é protegida com criptografia. Após o login, o servidor gera um token JWT único, que deve ser enviado no cabeçalho (header) de toda requisição seguinte. Esse token informa ao servidor quem é o usuário e quais permissões ele tem, eliminando a necessidade de enviar a senha novamente. Caso esqueça a senha, o sistema envia um código de verificação por email para redefini-la."
             />
             <StepCard
               number="2"
