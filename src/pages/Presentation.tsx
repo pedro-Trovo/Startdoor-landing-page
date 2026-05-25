@@ -50,24 +50,34 @@ const OBJECTIVES = [
 
 const FUTURE_FEATURES = [
   {
-    icon: '📈',
-    title: 'Dashboard com Gráficos e Indicadores',
-    desc: 'Área visual com estatísticas como evolução de notas, empresas mais bem avaliadas e tendências do mercado.',
+    icon: '🔒',
+    title: 'Validação de Avaliações',
+    desc: 'Mecanismos para comprovar que o usuário realmente atuou na empresa, via documentos ou APIs externas, aumentando a confiabilidade das informações compartilhadas.',
   },
   {
-    icon: '🔔',
-    title: 'Sistema de Notificações e Lembretes',
-    desc: 'Alertas para novos comentários, respostas de empresas e lembretes para avaliar experiências recentes.',
+    icon: '🧠',
+    title: 'IA Avançada',
+    desc: 'Interpretação mais aprofundada de compatibilidade, análise comportamental e personalização da experiência do usuário.',
   },
   {
-    icon: '🔗',
-    title: 'Integração com LinkedIn',
-    desc: 'Permitir que estudantes importem seu perfil profissional e compartilhem avaliações de forma integrada.',
+    icon: '💬',
+    title: 'Análise de Sentimentos',
+    desc: 'Interpretação automática de opiniões positivas, negativas ou neutras nos comentários, oferecendo métricas adicionais para comparação entre empresas.',
   },
   {
-    icon: '🏆',
-    title: 'Gamificação',
-    desc: 'Sistema de conquistas e pontuação para incentivar avaliações detalhadas e participação ativa.',
+    icon: '⭐',
+    title: 'Sistema de Reputação',
+    desc: 'Pontuação para usuários e organizações, incentivando avaliações confiáveis e moderação automática com IA.',
+  },
+  {
+    icon: '📱',
+    title: 'Experiência do Usuário',
+    desc: 'Notificações inteligentes, autenticação Google/LinkedIn, histórico de pesquisas, acessibilidade e aplicativo mobile próprio.',
+  },
+  {
+    icon: '🚀',
+    title: 'Expansão para Novos Contextos',
+    desc: 'Programas trainee, vagas júnior e oportunidades para recém-formados, acompanhando o desenvolvimento profissional do usuário.',
   },
 ];
 
@@ -411,8 +421,14 @@ export default function Presentation() {
           <h2 className="mb-6 text-3xl font-bold md:text-4xl" style={{ color: 'var(--purple-100)' }}>
             Implementações Futuras
           </h2>
-          <p className="mb-6 text-sm" style={{ color: 'var(--grey-400)' }}>
+          <p className="mb-3 text-sm" style={{ color: 'var(--grey-400)' }}>
             Próximos passos para evolução da plataforma
+          </p>
+
+          <p className="mb-6 text-xs leading-relaxed" style={{ color: 'var(--grey-300)' }}>
+            Embora os resultados obtidos tenham sido satisfatórios, a plataforma ainda apresenta
+            possibilidades significativas de evolução. As funcionalidades abaixo foram planejadas
+            para versões futuras.
           </p>
 
           <div className="grid gap-4 md:grid-cols-2">
@@ -434,6 +450,12 @@ export default function Presentation() {
               </div>
             ))}
           </div>
+
+          <p className="mt-6 text-xs leading-relaxed" style={{ color: 'var(--grey-400)' }}>
+            Espera-se que a Startdoor continue evoluindo como uma plataforma colaborativa voltada
+            à transparência e ao compartilhamento de experiências profissionais para estudantes e
+            profissionais em início de carreira.
+          </p>
         </div>
       </Slide>
 
