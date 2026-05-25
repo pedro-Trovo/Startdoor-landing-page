@@ -347,7 +347,7 @@ export default function Presentation() {
               { icon: '🔍', title: 'Pesquisar Empresas', desc: 'Busca por nome, setor e faixa de nota com resultados paginados' },
               { icon: '⭐', title: 'Avaliações', desc: 'Notas de 1 a 5 em 12 competências mais relato textual da experiência' },
               { icon: '📊', title: 'Gráfico Radar', desc: 'Compara visualmente suas expectativas com as médias reais da empresa' },
-              { icon: '📈', title: 'Match Automático', desc: 'Calcula se a empresa atende ≥70% das suas expectativas' },
+              { icon: '📈', title: 'Match Automático', desc: 'Calcula se a empresa atende ≥80% das suas expectativas' },
               { icon: '🤖', title: 'IA Gemini', desc: 'Gera um texto explicativo personalizado justificando o match' },
               { icon: '❤️', title: 'Favoritar', desc: 'Salve empresas de interesse para consultar depois' },
               { icon: '💬', title: 'Comentários', desc: 'Feedbacks com moderação de anonimato para proteger privacidade' },
