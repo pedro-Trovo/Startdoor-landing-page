@@ -586,8 +586,8 @@ export default function Explanation() {
                 <p className="text-xs leading-relaxed" style={{ color: 'var(--grey-300)' }}>
                   A comunicação com a API do Gemini é feita exclusivamente pelo backend em Java, utilizando
                   uma chave de API armazenada de forma segura nas variáveis de ambiente — sem expor dados
-                  sensíveis ou chaves no frontend. O texto gerado é armazenado no banco de dados para
-                  consultas futuras.
+                  sensíveis ou chaves no frontend. O texto gerado é exibido diretamente na tela do
+                  estudante — não é armazenado no banco, sendo gerado novamente a cada solicitação.
                 </p>
               </div>
             </div>
@@ -682,7 +682,7 @@ export default function Explanation() {
             {[
               { role: '🎓', title: 'Estudante', can: 'Avaliar empresas, comentar, favoritar, ver matches e recomendações da IA', cant: 'Responder como empresa, gerenciar setores ou acessar dados de outros estudantes' },
               { role: '🏢', title: 'Empresa', can: 'Criar e editar perfil público, gerenciar setores de atuação, responder comentários recebidos, ver suas avaliações', cant: 'Avaliar outras empresas, acessar dados pessoais de estudantes' },
-              { role: '⚙️', title: 'Administrador', can: 'Gerenciar setores, moderar conteúdo, acesso total ao painel administrativo', cant: '' },
+              { role: '⚙️', title: 'Administrador', can: 'Gerenciar setores, moderar avaliações, acesso total ao painel administrativo', cant: '' },
             ].map((p) => (
               <div key={p.title} className="rounded-xl p-5" style={{ backgroundColor: 'var(--grey-1100)', border: '1px solid var(--grey-800)' }}>
                 <span className="mb-3 block text-2xl">{p.role}</span>
