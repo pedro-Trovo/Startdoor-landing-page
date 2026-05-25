@@ -51,7 +51,7 @@ const OBJECTIVES = [
 const FUTURE_FEATURES = [
   {
     icon: '🔒',
-    title: 'Validação de Avaliações',
+    title: 'Validação de Atuação',
     desc: 'Mecanismos para comprovar que o usuário realmente atuou na empresa, via documentos ou APIs externas, aumentando a confiabilidade das informações compartilhadas.',
   },
   {
