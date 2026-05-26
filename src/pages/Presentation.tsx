@@ -40,12 +40,10 @@ const MOTIVATIONS = [
 ];
 
 const OBJECTIVES = [
-  'Criar uma plataforma colaborativa onde estudantes registram avaliações detalhadas sobre empresas estagiadas',
-  'Disponibilizar avaliação quantitativa em 12 competências (notas 1 a 5) + relato textual da experiência',
-  'Implementar algoritmo de match que compara expectativas do estudante com médias reais da empresa',
-  'Integrar IA Gemini para gerar textos explicativos personalizados sobre o resultado do match',
-  'Oferecer busca avançada com filtros combináveis por nome, setor e faixa de nota',
-  'Fornecer autenticação segura com JWT e recuperação de senha por email',
+  'Investigar as principais dificuldades enfrentadas por estudantes na busca e avaliação de oportunidades de estágio',
+  'Identificar quais informações são consideradas relevantes pelos estudantes na escolha de oportunidades de estágio',
+  'Analisar como a ausência de avaliações e relatos compartilhados impacta a tomada de decisão dos estudantes',
+  'Propor uma solução colaborativa que permita o compartilhamento de experiências relacionadas a processos seletivos e ambientes de estágio',
 ];
 
 const FUTURE_FEATURES = [
